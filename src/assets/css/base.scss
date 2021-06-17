@@ -1,0 +1,469 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .left-nav {}
+}
+
+.share-links a {
+    display: inline-block;
+    text-align: center;
+}
+
+.top-links-container .share-links a {
+    border-radius: 50% !important;
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    line-height: 25px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.share-links a:not(:hover) {
+    background: none;
+}
+
+.share-links a:hover,
+.share-links a:focus {
+    opacity: 0.9;
+    color: #fff;
+}
+
+.share-links .share-facebook {
+    background: #3b5a9a;
+}
+
+.share-links .share-twitter {
+    background: #1aa9e1;
+}
+
+.share-links .share-instagram {
+    background: #7c4a3a;
+}
+
+.share-links a {
+    display: inline-block;
+    text-align: center;
+}
+
+.top-links-container .share-links a {
+    border-radius: 50% !important;
+    width: 2em;
+    height: 2em;
+    margin: 0;
+    line-height: 25px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.share-links a:not(:hover) {
+    background: none;
+}
+
+.share-links a:hover,
+.share-links a:focus {
+    opacity: 0.9;
+    color: #fff;
+}
+
+.share-links .share-facebook {
+    background: #3b5a9a;
+}
+
+.share-links .share-twitter {
+    background: #1aa9e1;
+}
+
+.share-links .share-instagram {
+    background: #7c4a3a;
+}
+
+.template-index .header-wrapper {
+    display: none;
+}
+
+h3,
+h2 {
+    font-weight: 700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #222529;
+    letter-spacing: normal;
+}
+
+h3 {
+    margin: 0 0 20px 0;
+}
+
+h4,
+h5,
+h6 {
+    margin: 0 0 14px 0;
+}
+
+body {
+    line-height: 24px;
+}
+
+p {
+    letter-spacing: 0.14px;
+    line-height: 24px;
+    margin: 0 0 1.25rem;
+}
+
+b,
+strong {
+    font-weight: 700;
+}
+
+.ls-n-20 {
+    letter-spacing: -0.02em;
+}
+
+.ls-80 {
+    letter-spacing: 0.08em;
+}
+
+.m-l-xs {
+    margin-left: 5px !important;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-left {
+    text-align: left;
+}
+
+h2.vc_custom_heading {
+    font-family: "Segoe Script", "Savoye LET";
+}
+
+html .heading-light,
+html .lnk-light,
+html .text-color-light {
+    color: #ffffff;
+}
+
+html .heading-dark,
+html .lnk-dark,
+html .text-color-dark {
+    color: #222529;
+}
+
+html .heading-secondary,
+html .lnk-secondary,
+html .text-color-secondary {
+    color: #ff7272;
+}
+
+html .background-color-secondary {
+    background-color: #ff7272;
+}
+
+.f-left,
+.pull-left {
+    float: left;
+}
+
+.d-inline-block {
+    display: inline-block;
+}
+
+.coupon-sale-text {
+    transform: rotate(-2deg);
+    letter-spacing: -0.02em;
+    position: relative;
+    font-weight: 700;
+}
+
+.coupon-sale-text b {
+    display: inline-block;
+    font-size: 1.6em;
+    padding: 4px 8px;
+    background: none;
+}
+
+sup {
+    font-size: 50%;
+}
+
+.btn,
+.btn-button {
+    font-family: Poppins;
+    letter-spacing: 0.01em;
+    font-weight: 700;
+    border-radius: 0;
+    line-height: 1.42857;
+}
+
+html .btn-dark {
+    color: #fff;
+    background-color: #222529;
+    border-color: #222529 #222529 #0b0c0e;
+}
+
+.btn-modern {
+    font-size: 0.8125rem;
+    padding: 1em 2.8em;
+}
+
+.btn-flat {
+    padding: 0 !important;
+    background: none !important;
+    border: none !important;
+    border-bottom: 1px solid transparent !important;
+    box-shadow: none !important;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.main-navigation .top-navigation.side-menu>li.menu-custom-item {
+    margin-top: 0;
+}
+
+.main-navigation .top-navigation.side-menu>li.menu-custom-item a.level-top {
+    margin-bottom: -1px;
+}
+
+.header-wrapper .top-navigation li.level0 a.level-top i.category-icon {
+    display: none;
+}
+
+.main-navigation .top-navigation.side-menu li.level0 a.level-top {
+    text-transform: inherit;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.header-container.type1 .top-navigation li.level0 a.level-top {
+    letter-spacing: -0.3px;
+}
+
+.main-navigation .top-navigation.side-menu li.level0 a.level-top {
+    font-size: 14px;
+}
+
+.owl-carousel.nav-inside-left .owl-dots {
+    left: 5.5%;
+    bottom: 2rem;
+}
+
+.slideshow .item {
+    height: 428px;
+    padding: 0 !important;
+}
+
+.slideshow.owl-carousel.dots-style-1 .owl-dots span {
+    border-color: #222529;
+    color: #222529;
+}
+
+.content-container .has-content-pos {
+    font-size: 10px;
+}
+
+.homepage-bar {
+    border: 0;
+}
+
+.homepage-bar .row {
+    margin: 0;
+}
+
+.homepage-bar .block_content {
+    border: #e7e7e7 solid 1px;
+}
+
+.homepage-bar [class^="col-lg-"] {
+    border-left: 1px solid #fff;
+    margin: 11.5px 0;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.homepage-bar [class^="col-md-"] i,
+.homepage-bar [class^="col-lg-"] i {
+    font-size: 35px;
+}
+
+.homepage-bar .text-area h3 {
+    margin: 0;
+    font-size: 14px !important;
+    font-weight: 700;
+    line-height: 1 !important;
+    margin-bottom: 3px !important;
+}
+
+.homepage-bar .text-area p {
+    font-family: Poppins;
+    margin: 0;
+    font-size: 13px !important;
+    font-weight: 300;
+    color: #777 !important;
+    line-height: 1.2 !important;
+}
+
+.brands-slider .owl-carousel.owl-carousel-lazy .item {
+    justify-content: center;
+}
+
+.full-width-image-banner {
+    margin: 0;
+}
+
+.footer-wrapper p {
+    line-height: 24px;
+    letter-spacing: 0.065px;
+}
+
+.footer-wrapper .footer-middle {
+    padding-top: 4rem;
+    padding-bottom: 1.5rem;
+}
+
+.footer-wrapper .footer-middle .footer-ribbon {
+    padding: 10px 20px 6px;
+    top: 0;
+    margin: 0;
+    transform: translateY(-16px);
+    font-size: 1.6em;
+    line-height: 24px;
+}
+
+.footer-middle .footer-ribbon span {
+    font-size: inherit;
+}
+
+.main-container .main-breadcrumbs {
+    border: 0;
+}
+
+.product-view .product-shop .actions a.link-wishlist,
+.product-view .product-shop .actions a.link-compare {
+    width: 43px;
+    height: 43px;
+    line-height: 41px;
+}
+
+.product-view .product-shop .middle-product-detail .product-type-data .price-box .price {
+    font-family: "Oswald";
+}
+
+.product-view .add-to-links .link-wishlist i:before {
+    content: "\e889";
+}
+
+.main-container .pagenav-wrap .pagination .pagination-page li a:hover {
+    background: transparent;
+    color: inherit;
+    border-color: #ccc;
+}
+
+.main-container .pagenav-wrap .pagination .pagination-page li.active span {
+    background: transparent;
+    color: inherit;
+}
+
+.icon-right-dir:before {
+    content: "\e81a";
+}
+
+.main-container .pagenav-wrap .pagination .pagination-page li.text a:hover {
+    color: inherit;
+}
+
+.product-view .product-options-bottom {
+    border-bottom: 1px solid #ebebeb;
+}
+
+.template-blog .owl-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.main-container .login_content h2 {
+    text-transform: none;
+}
+
+.main-container .checkout-cart .checkout-info .shipping h2 a.collapsed:after {
+    content: "\e81c";
+    border: 0;
+    color: #21293c;
+    font-size: 17px;
+    background-color: transparent;
+}
+
+.main-container .checkout-cart .checkout-info .shipping h2 a:after {
+    content: "\e81b";
+    border: 0;
+    color: #21293c;
+    font-size: 17px;
+    background-color: transparent;
+}
+
+.main-container .checkout-cart .checkout-info .shipping h2:hover a:after {
+    background-color: transparent;
+    border: 0;
+    color: #21293c;
+}
+
+.main-container .checkout-cart .checkout-info .shipping h2,
+.main-container .checkout-cart .checkout-info .shipping .shipping-form .shipping-calculator-wrapper {
+    border-radius: 0;
+}
+
+.top-navigation li.level0.static-dropdown .mega-columns ul.level0 li.level1.groups.item {
+    width: 50%;
+}
+
+.section-title {
+    color: #313131;
+    font-size: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.product-details a {
+    color: #222529;
+}
+
+.price {
+    color: #444;
+}
+
+ul.product_list_widget li .product-details .amount {
+    color: #444;
+}
+
+@media (min-width: 992px) {
+    .header-container.type1 .search-area .search-extended {
+        border: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .footer-middle .social-icons {
+        margin-bottom: 15px;
+    }
+}
+
+@media (max-width: 767px) {
+    .site-logo img {
+        max-width: 88px !important;
+    }
+}

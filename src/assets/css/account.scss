@@ -1,0 +1,363 @@
+div.main-content-wrap.section-ptb.my-account-page {
+    box-sizing: border-box;
+    padding: 60px 0px;
+}
+
+div.d-single-info {
+    box-sizing: border-box;
+    border-right: 1px solid rgb(235, 235, 235);
+    padding: 30px 20px;
+}
+
+p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+a {
+    box-sizing: border-box;
+    color: rgb(128, 187, 1);
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+div.account-dashboard {
+    box-sizing: border-box;
+}
+
+div.d-single-info.text-lg-center {
+    box-sizing: border-box;
+    text-align: center !important;
+}
+
+a.view-cart {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 5px 12px;
+    text-transform: capitalize;
+}
+
+i.fa.fa-cart-plus {
+    box-sizing: border-box;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 1;
+    font-family: FontAwesome;
+    font-size: 14px;
+    text-rendering: auto;
+}
+
+div.col-md-12.col-lg-2 {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+}
+
+a.nav-link.active {
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    background-color: transparent;
+    display: block;
+    padding: 12px 0px;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+div.col-md-12.col-lg-10 {
+    box-sizing: border-box;
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    flex: 0 0 83.3333%;
+    max-width: 83.3333%;
+}
+
+div.tab-content.dashboard-content {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid rgb(235, 235, 235);
+    padding: 30px;
+}
+
+div#dashboard.tab-pane.active {
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+}
+
+h3 {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 20px;
+    color: rgb(58, 58, 58);
+    font-family: Rubik, sans-serif;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding-bottom: 15px;
+    text-transform: capitalize;
+}
+
+p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+a {
+    box-sizing: border-box;
+    color: rgb(128, 187, 1);
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+div#orders.tab-pane.fade.active.show {
+    box-sizing: border-box;
+    transition: opacity 0.15s linear 0s;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+}
+
+h3 {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 25px;
+    font-weight: 600;
+    line-height: 24px;
+    font-size: 20px;
+    color: rgb(58, 58, 58);
+    font-family: Rubik, sans-serif;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    padding-bottom: 15px;
+    text-transform: capitalize;
+}
+
+th {
+    box-sizing: border-box;
+    text-align: inherit;
+    padding: 0.75rem;
+    vertical-align: bottom;
+    border-top: 1px solid rgb(222, 226, 230);
+    border-bottom: 2px solid rgb(222, 226, 230);
+}
+
+td {
+    box-sizing: border-box;
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: 1px solid rgb(222, 226, 230);
+}
+
+a.view {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 5px 12px;
+    text-transform: capitalize;
+}
+
+h4.billing-address {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    line-height: 28px;
+    font-size: 20px;
+    color: rgb(58, 58, 58);
+    font-family: Rubik, sans-serif;
+}
+
+a.view {
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    background-color: transparent;
+    display: inline-block;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    background: rgb(0, 0, 0);
+    font-size: 14px;
+    padding: 5px 12px;
+    text-transform: capitalize;
+}
+
+p.biller-name {
+    box-sizing: border-box;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+p {
+    box-sizing: border-box;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-size: 14px;
+}
+
+div#address.tab-pane.active {
+    box-sizing: border-box;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+}
+
+div#account-details.tab-pane.fade.active.show {
+    box-sizing: border-box;
+    transition: opacity 0.15s linear 0s;
+    display: block;
+    height: auto;
+    max-width: 100%;
+    visibility: visible;
+    overflow: visible;
+    opacity: 1;
+}
+
+div.login-form-container {
+    box-sizing: border-box;
+    background: none 0px 0px repeat scroll rgba(0, 0, 0, 0);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 6px;
+    padding: 60px;
+    text-align: left;
+}
+
+form {
+    box-sizing: border-box;
+}
+
+input {
+    box-sizing: border-box;
+    margin: 0px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: inherit;
+    overflow: visible;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    margin-bottom: 12px;
+    border: 1px solid rgb(221, 221, 221);
+    padding: 4px 10px;
+}
+
+label {
+    box-sizing: border-box;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 15px;
+}
+
+div.custom-checkbox {
+    box-sizing: border-box;
+    display: flex;
+}
+
+button.btn.default-btn {
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    margin: 0px;
+    font-family: inherit;
+    font-size: 15px;
+    line-height: 24px;
+    overflow: hidden;
+    text-transform: uppercase;
+    appearance: button;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 500;
+    color: rgb(128, 187, 1);
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid rgb(223, 219, 219);
+    padding: 6px 28px;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    outline: 0px;
+    box-shadow: none !important;
+    position: relative;
+    z-index: 1;
+    margin-top: 15px;
+}
+
+button.btn.default-btn:hover {
+    background: rgb(34, 34, 34);
+}
+
+a.nav-link.active {
+    box-sizing: border-box;
+    color: rgb(34, 34, 34);
+    text-decoration: none;
+    background-color: transparent;
+    display: block;
+    padding: 12px 0px;
+    line-height: inherit;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    border-bottom: 1px solid rgb(235, 235, 235);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.nav-link {
+    text-align: start !important;
+    text-transform: capitalize;
+    border-bottom: 1px solid rgb(235, 235, 235);
+}
+
+.tab-link {
+    color: rgb(34, 34, 34);
+    text-align: start !important;
+}
