@@ -9,7 +9,7 @@
                 id="product-featured-image"
                 class="gallery-image visible lazyloaded"
                 style=""
-                :src="image"
+                :src="image_url + featured_item.product_images[0].image"
               />
             </div>
           </div>
@@ -20,7 +20,7 @@
           <div class="product-name top-product-detail">
             <h1>
               <a href="#">
-                <span>{{ name }}</span>
+                <span style="text-align: start">{{ featured_item.name }}</span>
               </a>
             </h1>
           </div>
@@ -39,7 +39,7 @@
           <div class="short-description-detail">
             <div class="short-description">
               <div>
-                {{ description }}
+                {{ featured_item.description }}
               </div>
             </div>
           </div>
@@ -48,7 +48,9 @@
             <div class="product-type-data">
               <div class="price-box">
                 <div id="price" class="detail-price" itemprop="price">
-                  <div class="price">{{ price }}</div>
+                  <div class="price">
+                    ${{ featured_item.price || featured_item.totalPrice }}
+                  </div>
                 </div>
                 <meta itemprop="priceCurrency" content="USD" />
 
@@ -58,7 +60,7 @@
 
             <div class="product-inventory">
               <span data-translate="products.product.availability">Availability: </span>
-              <span class="in-stock">{{ in_stock }} </span>
+              <span class="in-stock">{{ featured_item.stock }} </span>
             </div>
           </div>
           <div class="product-type-main">
@@ -95,7 +97,8 @@
                         <div class="button-wrapper-content">
                           <button href="javascript:;" class="btn-cart add-to-cart">
                             <i class="icon-cart"></i>
-                            <span>Sold Out</span>
+                            <span v-if="inStock">Add To Cart</span>
+                            <span v-else>Sold Out</span>
                           </button>
                         </div>
                       </div>
@@ -132,41 +135,20 @@
 
 <script>
 import ShareLinks from "../links/ShareLinks.vue";
+import global from "@/mixins/global.js";
 export default {
+  mixins: [global],
   emits: ["close-quick-view"],
-  props: {
-    image: {
-      type: String,
-      required: true,
-      default: "images/products/3.jpg",
-    },
+  props: ["featured_item"],
 
-    name: {
-      type: String,
-      required: true,
-      default: "Porto Extended Camera",
-    },
-
-    description: {
-      type: String,
-      required: true,
-      default: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmo",
-    },
-
-    in_stock: {
-      type: String,
-      required: true,
-      default: "Out of Stock",
-    },
-
-    price: {
-      type: Number,
-      required: true,
-      default: 0.0,
-    },
-  },
   components: {
     ShareLinks,
+  },
+
+  computed: {
+    inStock() {
+      return this.featured_item.stock > 0;
+    },
   },
 
   methods: {
@@ -180,4 +162,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.product-shop-wrapper {
+  text-align: start !important;
+}
+</style>

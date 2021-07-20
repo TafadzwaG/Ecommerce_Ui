@@ -17,7 +17,11 @@
                   class="category-products products products-container grid products-spacing-10 item-1200-5 item-992-4 item-768-3 item-640-2 item-320-1"
                 >
                   <div class="products-grid columns5">
-                    <product-simple v-for="(product, index) in 30" :key="index">
+                    <product-simple
+                      v-for="(product, index) in products"
+                      :key="index"
+                      :product="product"
+                    >
                     </product-simple>
                   </div>
                 </div>
@@ -32,10 +36,24 @@
 
 <script>
 import ProductSimple from "@/components/Cards/ProductSimple.vue";
+import global from "@/mixins/global.js";
 export default {
+  mixins: [global],
   components: {
     ProductSimple,
   },
+
+  data: () => {
+    return {
+      loading: false,
+      products: [],
+    };
+  },
+  methods: {},
+  mounted() {
+    this.getProducts();
+  },
+  computed: {},
 };
 </script>
 <style>

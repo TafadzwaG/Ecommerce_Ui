@@ -11,7 +11,7 @@ export default {
 
         const responseData = await response.data;
 
-        if (response.status !== 200) {
+        if (response.status !== 200 || response.status === 401) {
             const error = new Error(responseData.message || "Failed to signup");
             throw error;
         }
@@ -22,6 +22,7 @@ export default {
         context.commit("setUser", {
             token: responseData.access_token,
             user: responseData.user,
+
         });
     },
 
@@ -40,6 +41,8 @@ export default {
 
         localStorage.setItem("token", responseData.access_token);
         localStorage.setItem("user", JSON.stringify(responseData.user));
+
+
 
         const token = responseData.access_token;
         const user = responseData.user;

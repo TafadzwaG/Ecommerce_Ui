@@ -6,8 +6,8 @@
           <cart-bread-crumb> </cart-bread-crumb>
         </div>
 
-        <empty-cart v-if="isEmpty"> </empty-cart>
-        <cart-items> </cart-items>
+        <empty-cart v-if="cart_total_qty <= 0"> </empty-cart>
+        <cart-items v-else> </cart-items>
       </div>
     </div>
   </div>
@@ -18,19 +18,25 @@ import EmptyCart from "@/components/cart/EmptyCart.vue";
 import CartBreadCrumb from "@/components/cart/CartBreadCrumb.vue";
 import CartItems from "@/components/cart/CartItems.vue";
 import { ref, reactive } from "vue";
+import { mapGetters } from "vuex";
+import global from "@/mixins/global.js";
 export default {
+  mixins: [global],
   components: {
     EmptyCart,
     CartBreadCrumb,
     CartItems,
   },
 
-  setup() {
-    const isEmpty = ref(false);
-
+  data: () => {
     return {
-      isEmpty,
+      isEmpty: false,
     };
+  },
+
+  methods: {},
+  computed: {
+    ...mapGetters(["cart_total_qty", "cartCost", "cartItems", "isAuthenticated"]),
   },
 };
 </script>

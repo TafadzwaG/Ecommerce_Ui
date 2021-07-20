@@ -100,7 +100,11 @@
     </div>
 
     <modal :show="openQuickViewModal" @close="closeQuickView">
-      <modal-item @close-quick-view="closeQuickView" @add-to-wish-list="addToWisList">
+      <modal-item
+        @close-quick-view="closeQuickView"
+        @add-to-wish-list="addToWisList"
+        :featured_item="featured_item"
+      >
       </modal-item>
     </modal>
   </div>
@@ -148,5 +152,8 @@ export default {
 .lazyloading,
 img:not(.lazyloaded) {
   opacity: 1 !important;
+}
+.product-image {
+  height: 180px !important;
 }
 </style>

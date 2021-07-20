@@ -33,4 +33,10 @@ export default {
   margin-left: 9rem;
   margin-right: 9rem;
 }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 </style>

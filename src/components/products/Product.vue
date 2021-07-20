@@ -4,21 +4,18 @@
       <div class="product-img-box col-md-6">
         <div class="product-img-list">
           <div class="product-image product-image-zoom zoom-available">
-            <div class="product-image-gallery loading">
-              <img
+            <div class="product-image-gallery">
+              <!-- <img
                 id="product-featured-image"
-                class="gallery-image visible"
-                data-src="//cdn.shopify.com/s/files/1/1632/5913/products/BlackGreyHeadset1_cef1a518-cfe5-4cc0-9e3c-f1ba9e249b90_600x_crop_center.jpg?v=1597401202"
-                data-zoom-image="//cdn.shopify.com/s/files/1/1632/5913/products/BlackGreyHeadset1_cef1a518-cfe5-4cc0-9e3c-f1ba9e249b90.jpg?v=1597401202"
-                style="padding-top: 100%"
-              />
-              <div class="icon-zoom d-none d-sm-block" style="cursor: pointer">
-                <div class="icon-magnifier-add"></div>
-              </div>
+                class=""
+                :src="image_url + productImage"
+                alt="image"
+              /> -->
             </div>
           </div>
         </div>
       </div>
+
       <div class="product-shop col-md-6">
         <div class="product-shop-wrapper">
           <div class="prev-next-products">
@@ -28,10 +25,13 @@
               </a>
               <div class="product-pop" data-with-product="sports-shoes"></div>
             </div>
+            .
           </div>
           <div class="product-name top-product-detail">
             <h1>
-              <a href="black-ears.html"><span class="lang1">Black Ears</span> </a>
+              <a href="black-ears.html"
+                ><span class="lang1">{{ product.name }}</span>
+              </a>
             </h1>
           </div>
           <div class="review-product-details">
@@ -40,7 +40,7 @@
           <div class="product-type-data">
             <div class="price-box">
               <div id="price" class="detail-price" itemprop="price">
-                <div class="price">$101.00</div>
+                <div class="price">${{ product.totalPrice }}</div>
               </div>
               <meta itemprop="priceCurrency" content="USD" />
               <link itemprop="availability" href="http://schema.org/OutOfStock" />
@@ -50,9 +50,7 @@
           <div class="short-description-detail">
             <div class="short-description">
               <div class="lang1">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi...
+                {{ product.description }}
               </div>
             </div>
           </div>
@@ -60,7 +58,8 @@
           <div class="middle-product-detail">
             <div class="product-inventory">
               <span data-translate="products.product.availability">Availability: </span>
-              <span class="in-stock">Out Of Stock </span>
+              <span class="in-stock" v-if="product.stock <= 0">Out Of Stock </span>
+              <span class="in-stock">In Stock({{ product.stock }} )</span>
             </div>
             <div class="product-category">
               <span data-translate="products.product.category">Categories:</span>
@@ -124,7 +123,8 @@
                             disabled="disabled"
                           >
                             <i class="icon-cart"></i>
-                            <span>Sold Out</span>
+                            <span v-if="product.stock <= 0">Sold Out</span>
+                            <span>Add to Cart</span>
                           </button>
                         </div>
                       </div>
@@ -175,10 +175,21 @@
 
 <script>
 import ShareLinks from "@/components/links/ShareLinks.vue";
+import global from "@/mixins/global.js";
 export default {
+  mixins: [global],
+  props: ["product"],
   components: {
     ShareLinks,
   },
+
+  mounted() {},
+  computed: {
+    productImage() {
+      return this.product.product_images[0].image;
+    },
+  },
+  methods: {},
 };
 </script>
 

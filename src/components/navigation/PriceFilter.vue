@@ -13,11 +13,9 @@
     <dd class="sidebar-content layer-filter price color-swatch">
       <ol class="swatch-list fields">
         <price-input :name="'Below $100.00'"> </price-input>
-        <price-input :name="'$100.00-199.00'"> </price-input>
-        <price-input :name="'$200.00-299.00'"> </price-input>
-        <price-input :name="'$300.00-399.00'"> </price-input>
-        <price-input :name="'$400.00-499.00'"> </price-input>
-        <price-input :name="'Above $500.00'"> </price-input>
+        <price-input :name="'$100.00-500.00'"> </price-input>
+        <price-input :name="'$500.00-1000.00'"> </price-input>
+        <price-input :name="'Above $1000.00'"> </price-input>
       </ol>
     </dd>
   </div>
@@ -29,6 +27,20 @@ export default {
   components: {
     PriceInput,
   },
+
+  data: () => {
+    return {
+      prices: [],
+
+      selected: {
+        prices: [],
+      },
+    };
+  },
+
+  methods: {},
+  computed: {},
+  mounted() {},
 };
 </script>
 

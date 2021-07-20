@@ -2,34 +2,31 @@
   <div class="item product product-col product-default product-type-simple">
     <div class="product-inner">
       <div class="product-image">
-        <a href="/collections/caps/products/basketball-sports-blue-shoes"
-          ><div class="inner img-effect">
+        <router-link :to="'/product-details/' + product.id">
+          <div class="inner img-effect">
             <img
               alt="Basketball Sports Blue Shoes"
               class="img-responsive main lazyloaded"
               style=""
-              :src="image_hover"
+              :src="image_url + product.product_images[0].image"
             />
 
             <img
               alt="Basketball Sports Blue Shoes"
               class="hover-image img-responsive lazyloaded"
               style=""
-              :src="image"
+              :src="image_url + product.product_images[1].image"
             />
           </div>
-        </a>
+        </router-link>
+
         <div class="loader-container" style="display: none">
           <div class="loader"><i class="porto-ajax-loader"></i></div>
         </div>
         <div class="links-on-image">
           <div class="add-links-wrap">
             <div class="add-links clearfix">
-              <a
-                href="#"
-                class="action-list quickview-icon quickview"
-                @click="openQuickView"
-              >
+              <a class="action-list quickview-icon quickview" @click="openQuickView">
                 <span>Quick View</span>
               </a>
             </div>
@@ -43,7 +40,7 @@
           ></span
         ><a class="product-loop-title" href="#">
           <h3 class="shopify-loop-product__title">
-            <span class="lang1">Basketball Sports Blue Shoes</span>
+            <span class="lang1">{{ product.name }}</span>
           </h3>
         </a>
 
@@ -63,29 +60,29 @@
 
         <div class="description">
           <div class="lang1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi...
+            {{ product.description }}
           </div>
         </div>
         <span class="price"
           ><span class="price-wrapper"
             ><span class="shopify-Price-amount amount"
               ><span class="money" data-currency-usd="$101.00" data-currency="USD"
-                >$101.00</span
+                >${{ product.totalPrice }}</span
               ></span
             ></span
           >
         </span>
         <div class="add-links-wrap">
           <div class="add-links clearfix">
-            <a href="#" class="button product_type_variable add_to_cart_button"
+            <a
+              @click.prevent="addToCart"
+              class="button product_type_variable add_to_cart_button"
               ><span>Add to Cart</span></a
             >
             <div class="yith-wcwl-add-to-wishlist">
               <div class="yith-wcwl-add-button show">
                 <div class="product-wishlist wishlist-4878316077133">
-                  <a class="add_to_wishlist link-wishlist"
+                  <a class="add_to_wishlist link-wishlist" @click.prevent="addToWishlist"
                     ><span>Add to wishlist</span></a
                   >
                 </div>
@@ -108,7 +105,11 @@
     </div>
 
     <modal :show="openQuickViewModal" @close="closeQuickView">
-      <modal-item @close-quick-view="closeQuickView" @add-to-wish-list="addToWisList">
+      <modal-item
+        @close-quick-view="closeQuickView"
+        @add-to-wish-list="addToWisList"
+        :featured_item="product"
+      >
       </modal-item>
     </modal>
   </div>
@@ -117,19 +118,11 @@
 <script>
 import Modal from "@/components/Modal/Modal.vue";
 import ModalItem from "@/components/Modal/ModalItem.vue";
+import global from "@/mixins/global.js";
+import axios from "axios";
 export default {
-  props: {
-    image: {
-      type: String,
-      required: true,
-      default: "images/products/3.jpg",
-    },
-    image_hover: {
-      type: String,
-      required: true,
-      default: "images/products/2.jpg",
-    },
-  },
+  props: ["product"],
+  mixins: [global],
   components: {
     Modal,
     ModalItem,
@@ -146,8 +139,27 @@ export default {
     closeQuickView() {
       this.openQuickViewModal = false;
     },
+    addToCart() {
+      this.$store.dispatch("addItemToCart", {
+        product_id: this.product.id,
+        quantity: 1,
+      });
+      this.loadUser();
+    },
+
+    addToWishlist() {
+      this.$store.dispatch("addProductToWishlist", {
+        product_id: this.product.id,
+      });
+
+      this.loadUser();
+    },
   },
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.product-image {
+  height: 180px;
+}
+</style>

@@ -4,9 +4,13 @@ import actions from './actions'
 
 
 export default {
+
     state: () => ({
-        token: localStorage.getItem('token'),
-        user: JSON.parse(localStorage.getItem('user')) || {},
+        user: localStorage.getItem('user') ?
+            JSON.parse(localStorage.getItem('user')) : {},
+        token: localStorage.getItem('token') || '',
+        cart: localStorage.getItem('cart') ?
+            JSON.parse(localStorage.getItem('cart')) : {},
     }),
 
     getters,

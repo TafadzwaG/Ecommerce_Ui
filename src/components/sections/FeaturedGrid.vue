@@ -1,5 +1,9 @@
 <template>
-  <div id="shopify-section-1586321820731" class="shopify-section">
+  <div
+    id="shopify-section-1586321820731"
+    class="shopify-section"
+    v-if="featured_products.length !== 0"
+  >
     <div class="html-code">
       <div class="html-code-wrapper">
         <div class="lang1">
@@ -32,7 +36,9 @@
                                 alt="Women Blouse"
                                 class="img-responsive main lazypreload lazyloaded"
                                 style="padding-top: "
-                                src="images/products/4.jpg"
+                                :src="
+                                  image_url + featured_products[0].product_images[0].image
+                                "
                               />
                             </div>
                           </a>
@@ -92,15 +98,16 @@
                         <div class="product-content">
                           <div class="clear"></div>
                           <span class="category-list"
-                            ><a href="#" title="">ACCESSORIES</a>,&nbsp;<a
-                              href="#"
-                              title=""
-                              >CLOTHES</a
-                            ></span
+                            ><a href="#" title="">{{
+                              featured_products[0].categories[1].name
+                            }}</a
+                            >,&nbsp;<a href="#" title="">{{
+                              featured_products[0].categories[2].name
+                            }}</a></span
                           >
                           <a class="product-loop-title" href="#">
                             <h3 class="shopify-loop-product__title">
-                              <span class="lang1">Women Blouse</span>
+                              <span class="lang1">{{ featured_products[0].name }}</span>
                             </h3>
                           </a>
                           <div class="rating-wrap">
@@ -124,7 +131,7 @@
                           <span class="price"
                             ><span class="shopify-Price-amount amount"
                               ><span class="money" data-currency-usd="$299.00"
-                                >$2999.00</span
+                                >${{ featured_products[0].price }}</span
                               ></span
                             >
                           </span>
@@ -141,12 +148,16 @@
                           <a href="#">
                             <div class="inner">
                               <img
-                                data-src="images/products/4.jpg"
+                                :data-src="
+                                  image_url + featured_products[1].product_images[1].image
+                                "
                                 alt="Men
                                                                                         Clothes"
                                 class="img-responsive main lazypreload lazyloaded"
                                 style="padding-top: "
-                                src="images/products/4.jpg"
+                                :src="
+                                  image_url + featured_products[1].product_images[1].image
+                                "
                               />
                             </div>
                           </a>
@@ -209,15 +220,16 @@
                         <div class="product-content">
                           <div class="clear"></div>
                           <span class="category-list"
-                            ><a href="#" title="">ACCESSORIES</a>,&nbsp;<a
-                              href="#"
-                              title=""
-                              >CLOTHES</a
-                            ></span
+                            ><a href="#" title="">{{
+                              featured_products[1].categories[1].name
+                            }}</a
+                            >,&nbsp;<a href="#" title="">{{
+                              featured_products[1].categories[2].name
+                            }}</a></span
                           >
                           <a class="product-loop-title" href="#">
                             <h3 class="shopify-loop-product__title">
-                              <span class="lang1">Women Blouse</span>
+                              <span class="lang1">{{ featured_products[1].name }}</span>
                             </h3>
                           </a>
                           <div class="rating-wrap">
@@ -241,7 +253,7 @@
                           <span class="price"
                             ><span class="shopify-Price-amount amount"
                               ><span class="money" data-currency-usd="$299.00"
-                                >$2999.00</span
+                                >${{ featured_products[1].price }}</span
                               ></span
                             >
                           </span>
@@ -258,12 +270,13 @@
                           <a href="#">
                             <div class="inner">
                               <img
-                                data-src="images/products/3.jpg"
-                                alt="Men
-                                                                                        Belt"
+                                v-if="featured_products[2].product_images.length > 0"
+                                alt="Men Belt"
                                 class="img-responsive main lazypreload lazyloaded"
                                 style="padding-top: "
-                                src="images/products/3.jpg"
+                                :src="
+                                  image_url + featured_products[2].product_images[0].image
+                                "
                               />
                             </div>
                           </a>
@@ -329,15 +342,16 @@
                         <div class="product-content">
                           <div class="clear"></div>
                           <span class="category-list"
-                            ><a href="#" title="">ACCESSORIES</a>,&nbsp;<a
-                              href="#"
-                              title=""
-                              >CLOTHES</a
-                            ></span
+                            ><a href="#" title="">{{
+                              featured_products[2].categories[1].name
+                            }}</a
+                            >,&nbsp;<a href="#" title="">{{
+                              featured_products[2].categories[2].name
+                            }}</a></span
                           >
                           <a class="product-loop-title" href="#">
                             <h3 class="shopify-loop-product__title">
-                              <span class="lang1">Women Blouse</span>
+                              <span class="lang1">{{ featured_products[2].name }}</span>
                             </h3>
                           </a>
                           <div class="rating-wrap">
@@ -353,6 +367,8 @@
                                   ><i class="spr-icon spr-icon-star-empty"></i
                                   ><i class="spr-icon spr-icon-star-empty"></i
                                 ></span>
+
+                                {{}}
                                 <span class="spr-badge-caption">No reviews</span>
                               </span>
                             </div>
@@ -360,7 +376,9 @@
 
                           <span class="price"
                             ><span class="shopify-Price-amount amount"
-                              ><span class="money">$2999.00</span></span
+                              ><span class="money"
+                                >${{ featured_products[2].price }}</span
+                              ></span
                             >
                           </span>
                         </div>
@@ -376,12 +394,13 @@
                           <a href="#">
                             <div class="inner">
                               <img
-                                data-src="images/products/1.jpg"
-                                alt="Woman
-                                                                                        Bag"
+                                v-if="featured_products[3].product_images.length > 0"
+                                alt="Men Belt"
                                 class="img-responsive main lazypreload lazyloaded"
                                 style="padding-top: "
-                                src="images/products/1.jpg"
+                                :src="
+                                  image_url + featured_products[3].product_images[0].image
+                                "
                               />
                             </div>
                           </a>
@@ -438,15 +457,16 @@
                         <div class="product-content">
                           <div class="clear"></div>
                           <span class="category-list"
-                            ><a href="#" title="">ACCESSORIES</a>,&nbsp;<a
-                              href="#"
-                              title=""
-                              >CLOTHES</a
-                            ></span
+                            ><a href="#" title="">{{
+                              featured_products[3].categories[1].name
+                            }}</a
+                            >,&nbsp;<a href="#" title="">{{
+                              featured_products[3].categories[2].name
+                            }}</a></span
                           >
                           <a class="product-loop-title" href="#">
                             <h3 class="shopify-loop-product__title">
-                              <span class="lang1">Women Blouse</span>
+                              <span class="lang1">{{ featured_products[3].name }}</span>
                             </h3>
                           </a>
                           <div class="rating-wrap">
@@ -469,7 +489,9 @@
 
                           <span class="price"
                             ><span class="shopify-Price-amount amount"
-                              ><span class="money">$2.00</span></span
+                              ><span class="money"
+                                >${{ featured_products[3].price }}</span
+                              ></span
                             >
                           </span>
                         </div>
@@ -487,17 +509,25 @@
 </template>
 
 <script>
-import global from "@/mixins/global.js";
+import useFetch from "@/hooks/fetch.js";
+import useGlobal from "@/hooks/global.js";
+import { ref, onMounted } from "vue";
 export default {
-  mixins: [global],
-  data: () => {
-    return {
-      featured_products: [],
-    };
-  },
+  setup() {
+    const [
+      baseUrl,
+      image_url,
+      featured_products,
+      requestAuthHeader,
+      requestHeader,
+      getFeaturedProducts,
+    ] = useGlobal();
 
-  mounted() {
-    this.getFeaturedProducts();
+    onMounted(getFeaturedProducts);
+    return {
+      featured_products,
+      image_url,
+    };
   },
 };
 </script>

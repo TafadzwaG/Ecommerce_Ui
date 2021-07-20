@@ -2,14 +2,13 @@
   <div class="item product product-col product-outimage_aq_onimage product-type-simple">
     <div class="product-inner">
       <div class="product-image">
-        <a href="https://porto-demo7.myshopify.com/collections/all/products/black-glasses"
-          ><div class="inner img-effect">
+        <router-link :to="'/product-details/' + product.id">
+          <div class="inner img-effect">
             <img
-              data-src="//cdn.shopify.com/s/files/1/1613/0131/products/BlackGlasses_300x300_crop_center.jpg?v=1600571397"
               alt="Black Glasses"
               class="img-responsive main lazypreload lazyloaded"
               style=""
-              src="images/products/3.jpg"
+              :src="image_url + product.product_images[0].image"
             />
 
             <img
@@ -17,10 +16,11 @@
               alt="Black Glasses"
               class="hover-image img-responsive lazypreload lazyloaded"
               style=""
-              src="images/products/2.jpg"
+              :src="image_url + product.product_images[1].image"
             />
           </div>
-        </a>
+        </router-link>
+
         <div class="loader-container" style="display: none">
           <div class="loader"><i class="porto-ajax-loader"></i></div>
         </div>
@@ -102,7 +102,7 @@
           href="https://porto-demo7.myshopify.com/collections/all/products/black-glasses"
         >
           <h3 class="shopify-loop-product__title">
-            <span class="lang1">Black Glasses</span>
+            <span class="lang1">{{ product.name }}</span>
           </h3>
         </a>
 
@@ -129,7 +129,7 @@
         </div>
         <span class="price"
           ><span class="shopify-Price-amount amount"
-            ><span class="money" data-currency-usd="$120.00">$120.00</span></span
+            ><span class="money">${{ product.totalPrice }}</span></span
           ></span
         >
       </div>
@@ -138,7 +138,14 @@
 </template>
 
 <script>
-export default {};
+import global from "@/mixins/global.js";
+export default {
+  mixins: [global],
+  props: ["product"],
+  data: () => {
+    return {};
+  },
+};
 </script>
 
 <style></style>

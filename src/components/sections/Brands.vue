@@ -1,24 +1,5 @@
 <template>
-  <div class="porto-custom-block">
-    <div class="lang1">
-      <hr class="grdnt-sprt" />
-
-      <div style="padding: 10px 0">
-        <div class="brand-container" style="width: 296.333px; margin-right: 20px">
-          <div class="item">
-            <a href="#">
-              <img
-                data-src="images/david-smith.png"
-                alt="Brand 4"
-                class="brand-image"
-                src="images/david-smith.png"
-              />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="porto-custom-block"></div>
 </template>
 
 <script>

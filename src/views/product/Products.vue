@@ -18,10 +18,14 @@
                   >
                     <div class="middle nav-pos-outside nav-style-4 show-nav-hover">
                       <div class="category-container">
-                        <category-card> </category-card>
-                        <category-card> </category-card>
-                        <category-card> </category-card>
-                        <category-card> </category-card>
+                        <div class="cat-container">
+                          <category-card
+                            v-for="product_category in product_categories"
+                            :key="product_category.id"
+                            :category="product_category"
+                          >
+                          </category-card>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -42,19 +46,52 @@
 import CategoryCard from "@/components/Cards/CategoryCard.vue";
 import FeaturedGrid from "@/components/sections/FeaturedGrid.vue";
 import ProductsList from "@/components/sections/ProductsList.vue";
-
+import global from "@/mixins/global.js";
+import axios from "axios";
+import useGlobal from "@/hooks/global.js";
+import { ref, onMounted, watch, toRefs, computed, reactive } from "vue";
 export default {
+  mixins: [global],
   components: {
     CategoryCard,
     FeaturedGrid,
     ProductsList,
   },
 
-  data: () => {
-    return {};
-  },
+  setup() {
+    const loading = ref(false);
+    const error = ref(null);
+    const product_categories = ref([]);
 
-  methods: {},
+    const [
+      baseUrl,
+      image_url,
+      featured_products,
+      requestAuthHeader,
+      requestHeader,
+      getFeaturedProducts,
+    ] = useGlobal();
+
+    const getProductCategories = async () => {
+      try {
+        const resp = await axios.get(baseUrl.value + "categories", requestAuthHeader());
+        product_categories.value = resp.data.data;
+      } catch (ex) {
+        error.value = ex;
+        throw new Error(ex);
+      } finally {
+        loading.value = false;
+      }
+    };
+
+    onMounted(getProductCategories);
+
+    return {
+      loading,
+      error,
+      product_categories,
+    };
+  },
 };
 </script>
 
@@ -73,7 +110,16 @@ export default {
   background-color: red;
   border-radius: 50%;
 }
-.category-container {
+.cat-container {
   display: flex;
+  margin: 0 1rem;
 }
 </style>
+
+// data: () => { // return { // loading: false, // product_categories: [], // }; // }, //
+methods: { // getProductCategories() { // this.loading = true; // axios //
+.get(this.base_url + "categories", this.requestAuthHeader()) // .then((response) => { //
+if (response.status == 200) { // console.log(response.data.data); //
+this.product_categories = response.data.data; // this.loading = false; // } // }) //
+.catch((error) => { // console.log(error); // this.loading = false; // }); // }, // }, //
+mounted() { // this.getProductCategories(); // },

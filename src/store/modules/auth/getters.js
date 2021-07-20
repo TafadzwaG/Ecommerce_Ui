@@ -13,6 +13,14 @@ export default {
 
     userMail(state) {
         return state.user.email;
+    },
+
+    getCartInUser(state) {
+        return state.user.cart;
+    },
+
+    getWishListInUser(state) {
+        return state.user.wishlist;
     }
 
 };

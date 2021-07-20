@@ -26,7 +26,12 @@
           >
             <template v-slot:link> {{ category.name }} </template>
             <template v-slot:drop-down>
-              <sub-menu :product_categories="category.product_categories"> </sub-menu>
+              <sub-menu
+                :sub_categories="category.subcategory"
+                :image="category.image"
+                v-if="category.subcategory.length !== 0"
+              >
+              </sub-menu>
             </template>
           </side-bar-link>
 

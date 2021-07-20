@@ -33,7 +33,12 @@
                             </tr>
                           </thead>
                           <tbody>
-                            <cart-item-card> </cart-item-card>
+                            <cart-item-card
+                              v-for="(item, index) in cartItems"
+                              :key="index"
+                              :cart_item="item"
+                            >
+                            </cart-item-card>
 
                             <actions> </actions>
                           </tbody>
@@ -68,6 +73,8 @@ import { ref, reactive } from "vue";
 import CartTotalCard from "@/components/cart/CartTotalCard.vue";
 import CartItemCard from "@/components/cart/CartItemCard.vue";
 import Actions from "@/components/cart/Actions.vue";
+import { mapGetters } from "vuex";
+import global from "@/mixins/global.js";
 
 export default {
   components: {
@@ -75,13 +82,18 @@ export default {
     CartItemCard,
     Actions,
   },
-  setup() {
-    const zipError = ref(false);
 
-    return {
-      zipError,
-    };
+  computed: {
+    ...mapGetters(["cart_total_qty", "cartCost", "cartItems", "isAuthenticated"]),
   },
+
+  // setup() {
+  //   const zipError = ref(false);
+
+  //   return {
+  //     zipError,
+  //   };
+  // },
 };
 </script>
 

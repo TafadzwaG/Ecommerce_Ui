@@ -15,7 +15,8 @@
                 <a href="javascript:void(0)"><i class="fa fa-sliders"></i></a>
               </div>
               <div class="canvas-inner sidebar-style-1">
-                <nav-categories> </nav-categories>
+                <nav-categories @filter-product="filterProductByCategory">
+                </nav-categories>
                 <div class="block block-layered-nav">
                   <div class="block-content">
                     <dl class="narrow-by-list">
@@ -34,14 +35,15 @@
               <filter-mini> </filter-mini>
             </div>
             <div
-              class="category-products products grid products-spacing-10 item-1200-3 item-640-2 item-320-1"
+              class="category-products products grid products-spacing-10 item-1200-4 item-992-4 item-768-3 item-640-2 item-320-1"
             >
-              <div id="products-grid" class="products-grid columns3">
-                <product-card> </product-card>
-                <product-card> </product-card>
-                <product-card> </product-card>
-                <product-card> </product-card>
-                <product-card> </product-card>
+              <div id="products-grid" class="products-grid columns4">
+                <product-card
+                  v-for="product in products"
+                  :key="product.id"
+                  :product="product"
+                >
+                </product-card>
               </div>
             </div>
           </div>
@@ -55,8 +57,12 @@
 import ProductCard from "@/components/products/ProductCard.vue";
 import NavCategories from "@/components/navigation/NavCategories.vue";
 import PriceFilter from "@/components/navigation/PriceFilter.vue";
+import axios from "axios";
 import FilterMini from "@/components/ui/FilterMini.vue";
 import Breadcrumb from "@/components/navigation/BreadCrumbs.vue";
+import global from "@/mixins/global.js";
+import { onMounted } from "vue";
+import useFetchProducts from "@/hooks/useFetchProducts.js";
 export default {
   components: {
     ProductCard,
@@ -64,6 +70,18 @@ export default {
     PriceFilter,
     FilterMini,
     Breadcrumb,
+  },
+
+  setup() {
+    const { loading, error, products, getProducts } = useFetchProducts();
+
+    onMounted(getProducts);
+
+    return {
+      loading,
+      error,
+      products,
+    };
   },
 };
 </script>

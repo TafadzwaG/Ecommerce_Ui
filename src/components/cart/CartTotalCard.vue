@@ -11,7 +11,9 @@
               </th>
               <td>
                 <span class="shopify-Price-amount amount">
-                  <span class="price"><span class="money">$200.00</span></span>
+                  <span class="price"
+                    ><span class="money">${{ cartCost }}</span></span
+                  >
                 </span>
               </td>
             </tr>
@@ -107,7 +109,7 @@
                   <span class="woocommerce-Price-amount amount">
                     <span class="price"
                       ><span class="money" data-currency-usd="$200.00"
-                        >$200.00</span
+                        >${{ cartCost }}</span
                       ></span
                     >
                   </span>
@@ -127,7 +129,12 @@
 </template>
 
 <script>
-export default {};
+import { mapGetters } from "vuex";
+export default {
+  computed: {
+    ...mapGetters(["cart_total_qty", "cartCost"]),
+  },
+};
 </script>
 
 <style></style>

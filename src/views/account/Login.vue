@@ -90,7 +90,9 @@
 <script>
 import AccountCrumb from "@/components/ui/AccountCrumb.vue";
 import BaseLoader from "@/components/ui/BaseLoader.vue";
+import global from "@/mixins/global.js";
 export default {
+  mixins: [global],
   components: {
     AccountCrumb,
     BaseLoader,
@@ -125,8 +127,6 @@ export default {
 
       try {
         await this.$store.dispatch("signIn", signInDetails);
-        console.log("User SignIn Successfully..");
-
         this.$router.replace("/products");
       } catch (error) {
         this.isLoading = false;

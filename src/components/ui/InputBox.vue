@@ -6,33 +6,68 @@
       </div>
       <input type="text" min="1" v-model="quantity" class="quantity-selector" />
       <div class="increase items items2">
-        <i class="icon-plus" @click="increaseQuantity"></i>
+        <i class="icon-plus" @click.prevent="increaseQuantity"></i>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, reactive } from "vue";
+// import { ref, reactive } from "vue";
+import global from "@/mixins/global.js";
+import { mapMutations } from "vuex";
 export default {
-  setup() {
-    const quantity = ref(1);
+  mixins: [global],
+  props: ["items_quantity", "product_id"],
 
-    function decreaseQuantity() {
-      if (quantity.value <= 1) {
+  data: () => {
+    return {
+      quantity: 1,
+    };
+  },
+
+  watch: {
+    quantity: {
+      handler: function (val, oldVal) {
+        const newValue = val - oldVal;
+        this.addToCart(newValue);
+
+        // setTimeout(() => {
+        //   location.reload();
+        // }, 2000);
+        this.loadUser();
+      },
+
+      deep: true,
+    },
+  },
+  methods: {
+    ...mapMutations(["setUser"]),
+
+    addToCart(value) {
+      this.$store.dispatch("addItemToCart", {
+        product_id: this.product_id,
+        quantity: value,
+      });
+
+      this.loadUser();
+
+      this.setUser({
+        token: localStorage.getItem("token"),
+        user: localStorage.getItem("user"),
+      });
+    },
+
+    decreaseQuantity() {
+      if (this.quantity <= 1) {
         return;
       }
-      return quantity.value--;
-    }
+      return this.quantity--;
+    },
 
-    function increaseQuantity() {
-      return quantity.value++;
-    }
-    return {
-      quantity,
-      decreaseQuantity,
-      increaseQuantity,
-    };
+    increaseQuantity() {
+      return this.quantity++;
+    },
   },
 };
 </script>
