@@ -19,6 +19,7 @@ export default function useFetchProducts() {
         try {
             const response = await axios.get(baseUrl.value + 'products', requestAuthHeader())
             products.value = response.data.data
+            console.log(response.data.data)
 
         } catch (ex) {
             error.value = ex;

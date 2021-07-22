@@ -52,12 +52,8 @@
      }
 
 
-     return [
-         baseUrl,
-         image_url,
+     return {
          featured_products,
-         requestAuthHeader,
-         requestHeader,
          getFeaturedProducts,
-     ]
+     }
  }

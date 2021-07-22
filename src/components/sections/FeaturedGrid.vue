@@ -511,17 +511,13 @@
 <script>
 import useFetch from "@/hooks/fetch.js";
 import useGlobal from "@/hooks/global.js";
+import useGlobalVariable from "@/hooks/globalVariable.js";
 import { ref, onMounted } from "vue";
 export default {
   setup() {
-    const [
-      baseUrl,
-      image_url,
-      featured_products,
-      requestAuthHeader,
-      requestHeader,
-      getFeaturedProducts,
-    ] = useGlobal();
+    const { featured_products, getFeaturedProducts } = useGlobal();
+
+    const { baseUrl, image_url, requestAuthHeader } = useGlobalVariable();
 
     onMounted(getFeaturedProducts);
     return {

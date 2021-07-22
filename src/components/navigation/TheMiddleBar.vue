@@ -50,4 +50,16 @@ export default {
   margin-left: 9.5rem;
   margin-right: 9.5rem;
 }
+div.header-center {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: auto;
+  flex: 1 1 0%;
+  padding-left: 10px;
+  padding-right: 0px;
+}
 </style>

@@ -3,27 +3,31 @@ import { defineAsyncComponent } from 'vue'
 import auth from '../middlewares/auth'
 import store from '../store/index.js'
 import middlewarePipeline from '../middlewarePipeline.js'
+import Home from '../views/Home.vue'
+import About from '../views/About.vue'
+import Products from '../views/product/Products.vue'
+import ProductDetails from '../views/product/ProductDetails.vue'
+import ShopList from '../views/shop/ShopList.vue'
+import Login from '../views/account/Login.vue'
+import Register from '../views/account/Register.vue'
+import MyAccount from '../views/dashboard/MyAccount.vue'
+
 
 const routes = [{
         path: '/',
         name: 'Home',
-        component: () =>
-            import ('../views/Home.vue')
+        component: Home
     },
     {
         path: '/about',
         name: 'About',
-
-        component: () =>
-            import ('../views/About.vue')
+        component: About
     },
 
     {
         path: '/products',
         name: 'Products',
-
-        component: () =>
-            import ('../views/product/Products.vue'),
+        component: Products,
         meta: {
             middleware: [
                 auth
@@ -35,9 +39,7 @@ const routes = [{
     {
         path: '/product-details/:id',
         name: 'ProductDetails',
-
-        component: () =>
-            import ('../views/product/ProductDetails.vue'),
+        component: ProductDetails,
         meta: {
             middleware: [
                 auth
@@ -49,8 +51,7 @@ const routes = [{
     {
         path: '/shop-list',
         name: 'ShopList',
-        component: () =>
-            import ('../views/shop/ShopList.vue'),
+        component: ShopList,
         meta: {
             middleware: [
                 auth
@@ -62,21 +63,18 @@ const routes = [{
     {
         path: '/login',
         name: 'Login',
-        component: () =>
-            import ('../views/account/Login.vue')
+        component: Login,
     },
 
     {
         path: '/register',
         name: 'Register',
-        component: () =>
-            import ('../views/account/Register.vue')
+        component: Register,
     },
     {
         path: '/dashboard',
         name: 'Dashboard',
-        component: () =>
-            import ('../views/dashboard/MyAccount.vue'),
+        component: MyAccount,
         meta: {
             middleware: [
                 auth

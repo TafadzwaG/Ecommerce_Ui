@@ -18,14 +18,17 @@
                   >
                     <div class="middle nav-pos-outside nav-style-4 show-nav-hover">
                       <div class="category-container">
-                        <div class="cat-container">
-                          <category-card
+                        <carousel :items-to-show="4" :transition="300" :autoplay="3000">
+                          <slide
                             v-for="product_category in product_categories"
                             :key="product_category.id"
-                            :category="product_category"
                           >
-                          </category-card>
-                        </div>
+                            <div class="cat-container">
+                              <category-card :category="product_category">
+                              </category-card>
+                            </div>
+                          </slide>
+                        </carousel>
                       </div>
                     </div>
                   </div>
@@ -43,12 +46,15 @@
 </template>
 
 <script>
+import "vue3-carousel/dist/carousel.css";
+import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
 import CategoryCard from "@/components/Cards/CategoryCard.vue";
 import FeaturedGrid from "@/components/sections/FeaturedGrid.vue";
 import ProductsList from "@/components/sections/ProductsList.vue";
 import global from "@/mixins/global.js";
 import axios from "axios";
 import useGlobal from "@/hooks/global.js";
+import useGlobalVariable from "@/hooks/globalVariable.js";
 import { ref, onMounted, watch, toRefs, computed, reactive } from "vue";
 export default {
   mixins: [global],
@@ -56,6 +62,10 @@ export default {
     CategoryCard,
     FeaturedGrid,
     ProductsList,
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
   },
 
   setup() {
@@ -63,14 +73,8 @@ export default {
     const error = ref(null);
     const product_categories = ref([]);
 
-    const [
-      baseUrl,
-      image_url,
-      featured_products,
-      requestAuthHeader,
-      requestHeader,
-      getFeaturedProducts,
-    ] = useGlobal();
+    const { featured_products, getFeaturedProducts } = useGlobal();
+    const { baseUrl, image_url, requestAuthHeader } = useGlobalVariable();
 
     const getProductCategories = async () => {
       try {

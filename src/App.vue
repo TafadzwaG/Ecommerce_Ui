@@ -39,4 +39,8 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
+h3 {
+  border-bottom: none !important;
+}
 </style>

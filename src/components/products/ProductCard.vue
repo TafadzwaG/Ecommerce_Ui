@@ -35,9 +35,8 @@
       </div>
       <div class="product-content">
         <span class="category-list"
-          ><a href="#" title="">Accessories</a>,&nbsp;<a href="#" title=""
-            >BEST SELLING PRODUCTS</a
-          ></span
+          ><a href="#" title="">{{ product.categories[0].name }}</a
+          >, {{ product.categories[1].name }}</span
         ><a class="product-loop-title" href="#">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>
@@ -120,6 +119,7 @@ import Modal from "@/components/Modal/Modal.vue";
 import ModalItem from "@/components/Modal/ModalItem.vue";
 import global from "@/mixins/global.js";
 import axios from "axios";
+import { mapGetters } from "vuex";
 export default {
   props: ["product"],
   mixins: [global],
@@ -132,6 +132,7 @@ export default {
       openQuickViewModal: false,
     };
   },
+  computed: {},
   methods: {
     openQuickView() {
       this.openQuickViewModal = true;
@@ -140,19 +141,15 @@ export default {
       this.openQuickViewModal = false;
     },
     addToCart() {
-      this.$store.dispatch("addItemToCart", {
-        product_id: this.product.id,
-        quantity: 1,
-      });
-      this.loadUser();
-    },
-
-    addToWishlist() {
-      this.$store.dispatch("addProductToWishlist", {
-        product_id: this.product.id,
-      });
-
-      this.loadUser();
+      try {
+        this.$store.dispatch("addItemToCart", {
+          product_id: this.product.id,
+          quantity: 1,
+        });
+      } catch (ex) {
+        throw new Error(ex);
+      } finally {
+      }
     },
   },
 };

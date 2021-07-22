@@ -2,18 +2,13 @@
   <div class="product-essential">
     <div class="row">
       <div class="product-img-box col-md-6">
-        <div class="product-img-list">
+        <!-- <div class="product-img-list">
           <div class="product-image product-image-zoom zoom-available">
             <div class="product-image-gallery">
-              <!-- <img
-                id="product-featured-image"
-                class=""
-                :src="image_url + productImage"
-                alt="image"
-              /> -->
+             
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
 
       <div class="product-shop col-md-6">
@@ -35,7 +30,13 @@
             </h1>
           </div>
           <div class="review-product-details">
-            <span class="shopify-product-reviews-badge" data-id="4611501588514"></span>
+            <span class="shopify-product-reviews-badge">
+              <star-rating
+                :star-size="20"
+                :show-rating="false"
+                :rating="product.rating"
+              ></star-rating>
+            </span>
           </div>
           <div class="product-type-data">
             <div class="price-box">
@@ -176,11 +177,15 @@
 <script>
 import ShareLinks from "@/components/links/ShareLinks.vue";
 import global from "@/mixins/global.js";
+import ImageComponent from "./ImageComponent.vue";
+import StarRating from "vue-star-rating";
 export default {
   mixins: [global],
   props: ["product"],
   components: {
     ShareLinks,
+    ImageComponent,
+    StarRating,
   },
 
   mounted() {},
@@ -193,4 +198,12 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+.product-view .review-product-details:after {
+  content: "";
+  display: block;
+  width: 100px;
+  border-top: 2px solid #e7e7e7;
+  margin: 1rem 0 1.25rem;
+}
+</style>

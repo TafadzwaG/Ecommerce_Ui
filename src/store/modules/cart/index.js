@@ -6,7 +6,7 @@ import actions from './actions'
 export default {
 
     state: () => ({
-        cart: localStorage.getItem('user.cart') ? JSON.parse(localStorage.getItem('user.cart')) : {},
+        cart: localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : {},
     }),
 
     getters,

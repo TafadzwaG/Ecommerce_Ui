@@ -42,4 +42,22 @@
 export default {};
 </script>
 
-<style></style>
+<style scoped>
+input {
+  box-sizing: border-box;
+  margin: 0px;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow: visible;
+  padding: 0px 170px 0px 21px;
+  padding-right: 200px;
+  width: 100%;
+  height: 40px;
+  border: 0px;
+  border-radius: 20px;
+  background-color: transparent;
+  color: rgb(141, 141, 141);
+  visibility: visible;
+}
+</style>

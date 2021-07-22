@@ -35,6 +35,12 @@ export default {
             }
         },
 
+        formatDate(date) {
+            var d = new Date(date)
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+            return d.getDate() + " " + months[d.getMonth()] + ' ' + d.getFullYear()
+        },
+
 
 
         goBack() {

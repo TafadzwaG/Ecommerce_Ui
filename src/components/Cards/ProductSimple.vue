@@ -88,15 +88,8 @@
         </div>
         <div class="clear"></div>
         <span class="category-list"
-          ><a
-            href="https://porto-demo7.myshopify.com/collections/best-selling-products"
-            title=""
-            >BEST SELLING PRODUCTS</a
-          >,&nbsp;<a
-            href="https://porto-demo7.myshopify.com/collections/featured-products"
-            title=""
-            >FEATURED PRODUCTS</a
-          ></span
+          ><a title="">{{ product.categories[0].name }}</a
+          >,&nbsp;<a title="">{{ product.categories[1].name }}</a></span
         ><a
           class="product-loop-title"
           href="https://porto-demo7.myshopify.com/collections/all/products/black-glasses"
@@ -122,9 +115,7 @@
 
         <div class="description">
           <div class="lang1">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-            nostrud exercitation ullamco laboris nisi...
+            {{ product.description }}
           </div>
         </div>
         <span class="price"

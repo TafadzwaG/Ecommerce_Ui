@@ -44,7 +44,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .main-breadcrumbs {
   margin-top: 1rem;
 }
@@ -54,7 +54,7 @@ export default {
   left: 0;
   font-family: "porto";
   text-indent: 0;
-  content: "\e883";
+  content: "";
 }
 
 .bread-crumb-links {

@@ -8,11 +8,7 @@
         <li>
           <router-link class="level-top" :to="{ name: 'ShopList' }">Shop</router-link>
         </li>
-        <!-- <li>
-          <router-link class="level-top" :to="{ name: 'Collections' }"
-            >Collections</router-link
-          >
-        </li> -->
+
         <li>
           <router-link class="level-top" :to="{ name: 'Products' }">Products</router-link>
         </li>

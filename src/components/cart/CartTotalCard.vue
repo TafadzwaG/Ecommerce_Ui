@@ -12,7 +12,7 @@
               <td>
                 <span class="shopify-Price-amount amount">
                   <span class="price"
-                    ><span class="money">${{ cartCost }}</span></span
+                    ><span class="money">${{ cartCost.toFixed(2) }}</span></span
                   >
                 </span>
               </td>
@@ -109,7 +109,7 @@
                   <span class="woocommerce-Price-amount amount">
                     <span class="price"
                       ><span class="money" data-currency-usd="$200.00"
-                        >${{ cartCost }}</span
+                        >${{ cartCost.toFixed(2) }}</span
                       ></span
                     >
                   </span>

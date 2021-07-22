@@ -55,16 +55,18 @@
                       <ul class="contact-info">
                         <li>
                           <b style="color: #fff; text-transform: uppercase">Address:</b
-                          ><span>123 Street Name, City, England</span>
+                          ><span>237 Street New Cannan, Highfield, Harare</span>
                         </li>
                         <li>
                           <b style="color: #fff; text-transform: uppercase">Phone:</b
-                          ><span>(123) 456-7890</span>
+                          ><span>+(263) 782-903 276</span>
                         </li>
                         <li>
                           <b style="color: #fff; text-transform: uppercase">Email:</b
                           ><span
-                            ><a href="mailto:mail@example.com">mail@example.com</a></span
+                            ><a href="mailto:tafadzwagashirah@gmail.com"
+                              >tafadzwagashirah@gmail.com</a
+                            ></span
                           >
                         </li>
                         <li>

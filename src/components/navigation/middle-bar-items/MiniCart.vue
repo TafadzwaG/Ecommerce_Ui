@@ -18,7 +18,10 @@
           <div class="cart-inner-content">
             <div class="cart-content">
               <div class="total-count">
-                <span>{{ cart_total_qty }}<span> item(s)</span></span>
+                <span v-if="cart_total_qty > 0"
+                  >{{ cart_total_qty }}<span> item(s)</span></span
+                >
+                <span else>0<span> item(s)</span></span>
 
                 <router-link
                   :to="{ name: 'Cart' }"
@@ -75,7 +78,7 @@
                 <p class="subtotal">
                   <span class="label">Total:</span>
                   <span class="price"
-                    ><span class="money">${{ cartCost }}</span></span
+                    ><span class="money">${{ cartCost.toFixed(2) }}</span></span
                   >
                 </p>
               </div>

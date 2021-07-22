@@ -42,11 +42,11 @@ export default {};
 <style scoped>
 b {
   box-sizing: border-box;
-  font-weight: 700;
+  font-weight: 500 !important;
   margin: 0px;
   padding: 0px;
   color: #222529;
-  font-size: 18px;
+  font-size: 16px !important;
   display: block;
   line-height: 0.9;
   margin-top: 3px;

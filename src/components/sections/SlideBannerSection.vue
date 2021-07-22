@@ -162,7 +162,7 @@ export default {
   transition: 2s;
 }
 .slide-title {
-  margin-top: -1.7rem;
+  /* margin-top: -1.7rem; */
   margin-left: 2rem;
 }
 .slide-description {
