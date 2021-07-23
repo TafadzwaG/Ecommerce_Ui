@@ -4,7 +4,7 @@
       <div class="spr-review-header">
         <span class="spr-starratings spr-review-header-starratings">
           <star-rating
-            :star-size="20"
+            :star-size="15"
             :show-rating="false"
             :rating="review.star"
           ></star-rating>
@@ -43,5 +43,8 @@ export default {
 }
 .spr-review-header-starratings {
   float: right !important;
+}
+.icon-angle-left:before {
+  content: "";
 }
 </style>

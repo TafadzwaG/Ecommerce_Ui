@@ -1,5 +1,5 @@
 <template>
-  <div style="background: #f4f4f4">
+  <div class="top-nav">
     <div class="conta">
       <ul class="top-navigation">
         <li>
@@ -32,6 +32,9 @@ export default {};
   margin-left: 10rem;
   margin-right: 10rem;
 }
+.top-nav {
+  border-top: 1.5px solid #f4f4f4;
+}
 .level-top {
   box-sizing: border-box;
   color: rgb(34, 37, 41);
@@ -43,7 +46,7 @@ export default {};
   font-size: 12px;
   text-transform: uppercase;
   padding: 18.5px 22px 20.5px 0px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.3px;
   line-height: 1;
   position: relative;

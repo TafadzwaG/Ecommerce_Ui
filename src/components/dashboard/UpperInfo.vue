@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .user-name {
   box-sizing: border-box;
   margin-top: 0px;

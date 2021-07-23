@@ -26,13 +26,11 @@
           </div>
           <div class="review-product-details">
             <span class="spr-badge"
-              ><span class="spr-starrating spr-badge-starrating"
-                ><i class="spr-icon spr-icon-star" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star" style="color: #ffc600"></i></span
-              ><span class="spr-badge-caption">1 review</span>
+              ><star-rating
+                :star-size="20"
+                :show-rating="false"
+                :rating="featured_item.rating"
+              ></star-rating>
             </span>
           </div>
 
@@ -127,15 +125,14 @@
         </div>
       </div>
     </div>
-    <button title="Close (Esc)" type="button" class="mfp-close" @click="closeQuickView">
-      ×
-    </button>
+    <button type="button" class="mfp-close" @click="closeQuickView">×</button>
   </div>
 </template>
 
 <script>
 import ShareLinks from "../links/ShareLinks.vue";
 import global from "@/mixins/global.js";
+import StarRating from "vue-star-rating";
 export default {
   mixins: [global],
   emits: ["close-quick-view"],
@@ -143,6 +140,7 @@ export default {
 
   components: {
     ShareLinks,
+    StarRating,
   },
 
   computed: {

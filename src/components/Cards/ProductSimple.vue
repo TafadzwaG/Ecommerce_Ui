@@ -12,7 +12,6 @@
             />
 
             <img
-              data-src="//cdn.shopify.com/s/files/1/1613/0131/products/BlackGlasses1_300x300_crop_center.jpg?v=1600571398"
               alt="Black Glasses"
               class="hover-image img-responsive lazypreload lazyloaded"
               style=""
@@ -27,41 +26,21 @@
         <div class="links-on-image">
           <div class="add-links-wrap">
             <div class="add-links clearfix">
-              <a
-                href="https://porto-demo7.myshopify.com/collections/all/products/black-glasses"
-                class="button product_type_variable add_to_cart_button"
-                ><span data-translate="products.product.add_to_cart">Add to Cart</span></a
+              <a class="button product_type_variable add_to_cart_button"
+                ><span>Add to Cart</span></a
               >
               <div class="yith-wcwl-add-to-wishlist">
                 <div class="yith-wcwl-add-button show">
                   <div class="product-wishlist wishlist-4747899142191">
-                    <a
-                      href="javascript:;"
-                      data-product-handle="black-glasses"
-                      data-product-title="Black Glasses"
-                      class="add_to_wishlist link-wishlist"
-                      title="Add to wishlist"
-                      ><span data-translate="wish_list.general.add_to_wishlist"
-                        >Add to wishlist</span
-                      ></a
+                    <a href="javascript:;" class="add_to_wishlist link-wishlist"
+                      ><span>Add to wishlist</span></a
                     >
                   </div>
                 </div>
               </div>
               <div class="clear"></div>
-              <a
-                href="javascript:;"
-                data-product-handle="black-glasses"
-                data-product-title="Black Glasses"
-                class="link-compare"
-              >
-                <span data-translate="compare_list.general.add_to_compare"
-                  >Add to compare</span
-                > </a
-              ><a
-                href="https://porto-demo7.myshopify.com/products/black-glasses?view=quickview"
-                class="action-list quickview-icon quickview"
-              >
+              <a href="javascript:;" class="link-compare"> <span>Add to compare</span> </a
+              ><a class="action-list quickview-icon quickview">
                 <span data-translate="collections.general.quickview">Quick View</span>
               </a>
             </div>
@@ -74,14 +53,9 @@
             <div class="product-wishlist wishlist-4747899142191">
               <a
                 href="javascript:;"
-                data-product-handle="black-glasses"
-                data-product-title="Black Glasses"
                 class="add_to_wishlist link-wishlist"
                 title="Add to wishlist"
-                ><i class="icon-wishlist"></i
-                ><span data-translate="wish_list.general.add_to_wishlist"
-                  >Add to wishlist</span
-                ></a
+                ><i class="icon-wishlist"></i><span>Add to wishlist</span></a
               >
             </div>
           </div>
@@ -90,10 +64,7 @@
         <span class="category-list"
           ><a title="">{{ product.categories[0].name }}</a
           >,&nbsp;<a title="">{{ product.categories[1].name }}</a></span
-        ><a
-          class="product-loop-title"
-          href="https://porto-demo7.myshopify.com/collections/all/products/black-glasses"
-        >
+        ><a class="product-loop-title">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>
           </h3>
@@ -102,13 +73,11 @@
         <div class="rating-wrap">
           <div class="rating-content">
             <span class="spr-badge" id="spr_badge_4747899142191" data-rating="0.0"
-              ><span class="spr-starrating spr-badge-starrating"
-                ><i class="spr-icon spr-icon-star-empty" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star-empty" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star-empty" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star-empty" style="color: #ffc600"></i
-                ><i class="spr-icon spr-icon-star-empty" style="color: #ffc600"></i></span
-              ><span class="spr-badge-caption">No reviews</span>
+              ><star-rating
+                :star-size="15"
+                :show-rating="false"
+                :rating="product.rating"
+              ></star-rating>
             </span>
           </div>
         </div>
@@ -130,13 +99,17 @@
 
 <script>
 import global from "@/mixins/global.js";
+import StarRating from "vue-star-rating";
 export default {
   mixins: [global],
   props: ["product"],
+  components: {
+    StarRating,
+  },
   data: () => {
     return {};
   },
 };
 </script>
 
-<style></style>
+<style lang="scss" scoped></style>

@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.conta {
+.container {
   margin-left: 9.5rem;
   margin-right: 9.5rem;
 }

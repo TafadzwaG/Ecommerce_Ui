@@ -4,35 +4,15 @@
       ><span><i class="icon-magnifier"></i></span
     ></a>
     <div class="search-extended has-categories">
-      <form
-        role="search"
-        method="get"
-        class="searchform has-categories-dropdown porto-ajax-search"
-        data-thumbnail="1"
-        data-price="1"
-        data-post-type="product"
-        data-count="15"
-      >
+      <form role="search" class="searchform has-categories-dropdown porto-ajax-search">
         <label class="screen-reader-text" for="q"></label>
-        <input
-          type="text"
-          class="s"
-          data-translate="general.search.placeholder"
-          placeholder="Search..."
-          value=""
-          name="q"
-          autocomplete="off"
-        />
+        <input type="text" class="s" placeholder="Search..." value="" />
         <input type="hidden" name="type" value="product" />
         <div id="shopify-section-search-by-category" class="shopify-section"></div>
-        <button type="submit" class="searchsubmit" data-translate="general.search.submit">
-          Search
-        </button>
+        <button type="submit" class="searchsubmit">Search</button>
       </form>
       <div class="search-info-text">
-        <span data-translate="general.search.info_search"
-          >Start typing to see products you are looking for.</span
-        >
+        <span>Start typing to see products you are looking for.</span>
       </div>
     </div>
   </div>
@@ -43,7 +23,7 @@ export default {};
 </script>
 
 <style scoped>
-input {
+input.s {
   box-sizing: border-box;
   margin: 0px;
   font-family: inherit;
@@ -56,7 +36,7 @@ input {
   height: 40px;
   border: 0px;
   border-radius: 20px;
-  background-color: transparent;
+  background-color: transparent !important;
   color: rgb(141, 141, 141);
   visibility: visible;
 }

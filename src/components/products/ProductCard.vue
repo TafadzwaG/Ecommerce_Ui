@@ -46,13 +46,11 @@
         <div class="rating-wrap">
           <div class="rating-content">
             <span class="spr-badge" id="spr_badge_4878316077133" data-rating="0.0"
-              ><span class="spr-starrating spr-badge-starrating"
-                ><i class="spr-icon spr-icon-star-empty"></i
-                ><i class="spr-icon spr-icon-star-empty"></i
-                ><i class="spr-icon spr-icon-star-empty"></i
-                ><i class="spr-icon spr-icon-star-empty"></i
-                ><i class="spr-icon spr-icon-star-empty"></i></span
-              ><span class="spr-badge-caption">No reviews</span>
+              ><star-rating
+                :star-size="15"
+                :show-rating="false"
+                :rating="product.rating"
+              ></star-rating>
             </span>
           </div>
         </div>
@@ -65,9 +63,7 @@
         <span class="price"
           ><span class="price-wrapper"
             ><span class="shopify-Price-amount amount"
-              ><span class="money" data-currency-usd="$101.00" data-currency="USD"
-                >${{ product.totalPrice }}</span
-              ></span
+              ><span class="money">${{ product.totalPrice }}</span></span
             ></span
           >
         </span>
@@ -88,15 +84,8 @@
               </div>
             </div>
             <div class="clear"></div>
-            <a
-              href="javascript:;"
-              data-product-handle="basketball-sports-blue-shoes"
-              data-product-title="Basketball Sports Blue Shoes"
-              class="link-compare"
-            >
-              <span data-translate="compare_list.general.add_to_compare"
-                >Add to compare</span
-              >
+            <a href="javascript:;" class="link-compare">
+              <span>Add to compare</span>
             </a>
           </div>
         </div>
@@ -119,6 +108,7 @@ import Modal from "@/components/Modal/Modal.vue";
 import ModalItem from "@/components/Modal/ModalItem.vue";
 import global from "@/mixins/global.js";
 import axios from "axios";
+import StarRating from "vue-star-rating";
 import { mapGetters } from "vuex";
 export default {
   props: ["product"],
@@ -126,6 +116,7 @@ export default {
   components: {
     Modal,
     ModalItem,
+    StarRating,
   },
   data: () => {
     return {
@@ -158,5 +149,8 @@ export default {
 <style scoped>
 .product-image {
   height: 180px;
+}
+.rating-wrap {
+  margin-top: -2rem !important;
 }
 </style>

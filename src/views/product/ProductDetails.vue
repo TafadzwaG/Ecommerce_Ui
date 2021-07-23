@@ -26,7 +26,7 @@
             </span>
             <span class="spr-summary-caption"
               ><span class="spr-summary-actions-togglereviews"
-                >Based on {{ product.reviews.length }} reviews</span
+                >Based on {{}} reviews</span
               >
             </span>
             <span class="spr-summary-actions">
@@ -36,7 +36,11 @@
             </span>
           </div>
         </div>
-        <review-form v-if="toggleWriteReview" :productId="$route.params.id">
+        <review-form
+          v-if="toggleWriteReview"
+          :productId="$route.params.id"
+          @updateReview="getReviews"
+        >
         </review-form>
         <review-card v-for="review in reviews" :key="review.id" :review="review">
         </review-card>
@@ -115,6 +119,7 @@ export default {
         this.error = ex;
         throw new Error(ex);
       } finally {
+        this.toggleWriteReview = false;
       }
     },
   },

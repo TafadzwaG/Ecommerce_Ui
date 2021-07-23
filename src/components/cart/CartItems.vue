@@ -86,14 +86,6 @@ export default {
   computed: {
     ...mapGetters(["cart_total_qty", "cartCost", "cartItems", "isAuthenticated"]),
   },
-
-  // setup() {
-  //   const zipError = ref(false);
-
-  //   return {
-  //     zipError,
-  //   };
-  // },
 };
 </script>
 

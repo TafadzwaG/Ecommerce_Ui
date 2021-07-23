@@ -40,4 +40,10 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped lang="scss">
+.links {
+  li {
+    font-weight: 400 !important;
+  }
+}
+</style>

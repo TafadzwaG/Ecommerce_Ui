@@ -1,5 +1,5 @@
 <template>
-  <header class="main-section-header header-color" style="height: 119px">
+  <header class="main-section-header header-color">
     <div
       class="header-container type1 header-color-custom header-sticky-color-dark header-menu-style-default_new sticky-menu-color-dark header-menu-left sticky-header"
     >
@@ -30,7 +30,7 @@ div.header-container.type1.header-color-custom.header-sticky-color-dark.header-m
   position: relative;
   border-top-width: 0px;
   border-top-style: solid;
-  background-color: transparent;
+  background-color: transparent !important;
   color: rgb(51, 51, 51);
   background-repeat: no-repeat;
   background-size: cover;

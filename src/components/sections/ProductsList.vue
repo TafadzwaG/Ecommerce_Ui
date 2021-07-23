@@ -1,10 +1,6 @@
 <template>
   <div id="shopify-section-1600312911861" class="shopify-section">
-    <div
-      class="html-code"
-      data-section-id="1600312911861"
-      data-section-type="html-section"
-    >
+    <div class="html-code">
       <div class="html-code-wrapper">
         <div class="lang1">
           <div class="container custom-title hide-actions" style="padding-top: 32px">
@@ -56,7 +52,7 @@ export default {
   computed: {},
 };
 </script>
-<style>
+<style lang="scss" scoped>
 .custom-title .porto-products.title-border-bottom .section-title {
   margin-bottom: 16px;
   padding-bottom: 7px;

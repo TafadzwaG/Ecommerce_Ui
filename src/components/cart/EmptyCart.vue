@@ -3,16 +3,10 @@
     <div class="row">
       <div class="col-lg-12 main-content main-cart">
         <div id="shopify-section-cart-template" class="shopify-section">
-          <div
-            class="page-width"
-            data-section-id="cart-template"
-            data-section-type="cart-template"
-          >
+          <div class="page-width">
             <div class="checkout-cart text-center">
               <i class="cart-empty icon-bag-2"></i>
-              <p class="px-3 py-2 cart-empty" data-translate="cart.general.empty">
-                Your cart is currently empty.
-              </p>
+              <p class="px-3 py-2 cart-empty">Your cart is currently empty.</p>
               <p class="return-to-shop">
                 <router-link :to="{ name: 'Home' }" class="button btn-dark btn-go-shop">
                   Return To Shop

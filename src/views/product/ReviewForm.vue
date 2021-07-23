@@ -116,21 +116,7 @@ export default {
     setRating(rating) {
       this.rating = rating;
     },
-    async getReviews() {
-      try {
-        const response = await axios.get(
-          this.base_url + "reviews",
-          this.requestAuthHeader()
-        );
-        this.reviews = response.data.data;
 
-        console.log("reviews", response.data.data);
-      } catch (ex) {
-        this.error = ex;
-        throw new Error(ex);
-      } finally {
-      }
-    },
     async submitReview() {
       try {
         const resp = await axios.post(
@@ -157,7 +143,7 @@ export default {
           (this.rating = null),
           (this.review_title = ""),
           (this.review = "");
-        this.getReviews();
+        this.$emit("updateReview");
       }
     },
   },

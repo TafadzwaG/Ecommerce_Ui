@@ -6,7 +6,7 @@
           <div class="main pt-main">
             <home-bar-section> </home-bar-section>
             <div id="shopify-section-1597047153171" class="shopify-section">
-              <div data-section-id="1597047153171" data-section-type="main-section">
+              <div>
                 <div
                   id="main-block-1597047153171"
                   class="main-section-one main_section main_section_1597047153171"

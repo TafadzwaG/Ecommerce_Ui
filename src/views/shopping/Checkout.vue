@@ -31,7 +31,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .custom-text {
   font-weight: bold;
   font-size: 1.9em;

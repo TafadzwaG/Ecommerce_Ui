@@ -15,16 +15,16 @@
         <div class="product-shop-wrapper">
           <div class="prev-next-products">
             <div class="product-nav product-prev no-next">
-              <a href="sports-shoes.html" title="Previous Product">
+              <a href="#" title="Previous Product">
                 <i class="icon-angle-left"></i>
               </a>
-              <div class="product-pop" data-with-product="sports-shoes"></div>
+              <div class="product-pop"></div>
             </div>
             .
           </div>
           <div class="product-name top-product-detail">
             <h1>
-              <a href="black-ears.html"
+              <a href="#"
                 ><span class="lang1">{{ product.name }}</span>
               </a>
             </h1>
@@ -44,7 +44,7 @@
                 <div class="price">${{ product.totalPrice }}</div>
               </div>
               <meta itemprop="priceCurrency" content="USD" />
-              <link itemprop="availability" href="http://schema.org/OutOfStock" />
+              <link itemprop="availability" href="#" />
             </div>
           </div>
 
@@ -58,27 +58,22 @@
 
           <div class="middle-product-detail">
             <div class="product-inventory">
-              <span data-translate="products.product.availability">Availability: </span>
+              <span>Availability: </span>
               <span class="in-stock" v-if="product.stock <= 0">Out Of Stock </span>
               <span class="in-stock">In Stock({{ product.stock }} )</span>
             </div>
             <div class="product-category">
-              <span data-translate="products.product.category">Categories:</span>
+              <span>Categories:</span>
               <span class="category-list"
-                ><a href="../../dress.html" title="">DRESS</a>,&nbsp;<a
-                  href="../../shop.html"
-                  title=""
-                  >SHOP</a
-                >,&nbsp;<a href="../../trousers.html" title="">TROUSERS</a></span
+                ><a title="">{{}}</a>,&nbsp;<a title="">{{}}</a>,&nbsp;<a title=""
+                  >{{}}</a
+                ></span
               >
             </div>
           </div>
           <div class="product-type-main">
             <form
-              method="post"
-              action="https://porto-demo1.myshopify.com/cart/add"
               id="product-main-form"
-              accept-charset="UTF-8"
               class="product-form"
               enctype="multipart/form-data"
             >
@@ -135,27 +130,17 @@
                         <li>
                           <a
                             href="javascript:;"
-                            data-product-handle="black-ears"
-                            data-product-title="Black Ears"
                             class="link-wishlist"
                             title="Add to wishlist"
-                            ><i class="icon-heart"></i
-                            ><span data-translate="wish_list.general.add_to_wishlist"
-                              >Add to wishlist</span
-                            ></a
+                            ><i class="icon-heart"></i><span>Add to wishlist</span></a
                           >
                         </li>
                         <li>
                           <a
                             href="javascript:;"
-                            data-product-handle="black-ears"
-                            data-product-title="Black Ears"
                             class="link-compare"
                             title="Add to compare"
-                            ><i class="icon-compare"></i
-                            ><span data-translate="compare_list.general.add_to_compare"
-                              >Add to compare</span
-                            ></a
+                            ><i class="icon-compare"></i><span>Add to compare</span></a
                           >
                         </li>
                       </ul>
@@ -189,11 +174,7 @@ export default {
   },
 
   mounted() {},
-  computed: {
-    productImage() {
-      return this.product.product_images[0].image;
-    },
-  },
+  computed: {},
   methods: {},
 };
 </script>

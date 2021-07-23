@@ -39,7 +39,7 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
 .product-title {
   color: #222529 !important;
 }
