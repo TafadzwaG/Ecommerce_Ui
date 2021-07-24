@@ -30,6 +30,7 @@
                 :star-size="20"
                 :show-rating="false"
                 :rating="featured_item.rating"
+                :read-only="true"
               ></star-rating>
             </span>
           </div>

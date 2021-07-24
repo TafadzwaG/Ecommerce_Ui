@@ -1,5 +1,5 @@
 <template>
-  <div class="item product product-col product-default product-type-simple">
+  <div class="item product product-col product-default product-type-simple card-simple">
     <div class="product-inner">
       <div class="product-image">
         <router-link :to="'/product-details/' + product.id">
@@ -34,9 +34,11 @@
         </div>
       </div>
       <div class="product-content">
-        <span class="category-list"
-          ><a href="#" title="">{{ product.categories[0].name }}</a
-          >, {{ product.categories[1].name }}</span
+        <span
+          class="category-list category_name"
+          v-for="category in product.categories"
+          :key="category.id"
+          ><a href="#" title=""> {{ category.name }}, </a></span
         ><a class="product-loop-title" href="#">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>
@@ -50,6 +52,7 @@
                 :star-size="15"
                 :show-rating="false"
                 :rating="product.rating"
+                :read-only="true"
               ></star-rating>
             </span>
           </div>
@@ -140,6 +143,7 @@ export default {
       } catch (ex) {
         throw new Error(ex);
       } finally {
+        this.loadUser();
       }
     },
   },
@@ -152,5 +156,13 @@ export default {
 }
 .rating-wrap {
   margin-top: -2rem !important;
+}
+.category_name {
+  display: inline-block;
+}
+.card-simple {
+  /* border-radius: 10px;
+  background: #fff;
+  box-shadow: 20px 20px 60px #c9c6c6, -20px -20px 60px #ffffff; */
 }
 </style>

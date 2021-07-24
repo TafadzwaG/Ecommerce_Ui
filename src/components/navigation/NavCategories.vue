@@ -17,7 +17,8 @@
           :key="index"
         >
           <a @click="filterProduct" class="level-top">
-            <span>
+            <span class="span-with-check-box">
+            <input type="checkbox" class="checkbox smart_input" name="" :value="category.id" :id="'category'+index" v-model="selected.product_categories">
               <span class="lang1" @click="expandCategories(index)">{{
                 category.name
               }}</span>
@@ -88,11 +89,27 @@ export default {
       loading: false,
       expandedGroup: [],
       expandSubGroup: [],
+
+      selected: {
+        product_categories: []
+      }
+
     };
   },
 
   mounted() {
     this.getProductCategories();
+   
+  },
+
+  watch : {
+    selected: {
+      handler: function(){
+        this.getProductCategories(); 
+        this.getFilteredProducts()
+      },
+      deep: true,
+    },
   },
 
   computed: {},
@@ -101,10 +118,28 @@ export default {
       this.$emit("filter-product");
     },
 
+     getFilteredProducts() {
+      axios
+        .get(this.base_url + "products_filter", {
+          params: this.selected,
+        })
+        .then((response) => {
+          console.log("Products from filtering")
+          console.log(response.data.data);
+          console.log("Products from filtering")
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    },
     getProductCategories() {
       this.loading = true;
       axios
-        .get(this.base_url + "categories", this.requestAuthHeader())
+        .get(this.base_url + "categories", 
+        this.requestAuthHeader(), 
+        { 
+          params : (this.selected, "product_categories")
+        })
         .then((response) => {
           if (response.status == 200) {
             console.log(response.data.data);
@@ -157,5 +192,29 @@ export default {
 }
 .none-block {
   display: none;
+}
+.span-with-check-box{
+  /* border: 1px solid red; */
+  display: flex
+}
+.check{
+  border: 1px solid yellow !important;
+}
+
+input.checkbox.smart_input {
+  box-sizing: border-box;
+  margin: 4px;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: visible;
+  padding: 0px;
+
+ 
+  width: 18px;
+  height: 18px;
+  opacity: 1;
+  z-index: 99;
+  cursor: pointer;
 }
 </style>

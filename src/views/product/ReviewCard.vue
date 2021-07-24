@@ -9,13 +9,13 @@
             :rating="review.star"
           ></star-rating>
         </span>
-        <h3 class="spr-review-header-title">{{ review.review_title }} -</h3>
+        <h3 class="spr-review-header-title">{{ review.name }} -</h3>
         <span class="spr-review-header-byline"
           ><strong>posted</strong> on
           <strong> {{ formatDate(review.date_posted) }}</strong></span
         >
       </div>
-
+      <h3 class="spr-review-header-title custome-title">{{ review.review_title }}</h3>
       <div class="spr-review-content">
         <p class="spr-review-content-body">{{ review.review }}</p>
       </div>
@@ -46,5 +46,11 @@ export default {
 }
 .icon-angle-left:before {
   content: "";
+}
+.custome-title {
+  font-weight: 600 !important;
+}
+.spr-review-content {
+  margin-top: -15px;
 }
 </style>

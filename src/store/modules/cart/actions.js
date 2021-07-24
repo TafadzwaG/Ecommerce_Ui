@@ -36,6 +36,11 @@ export default {
 
                 localStorage.setItem("user", JSON.stringify(responseData))
 
+                context.commit("setUser", {
+                    user: responseData,
+                    token: context.getters.token,
+                });
+
             }
 
 

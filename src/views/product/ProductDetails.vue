@@ -25,8 +25,8 @@
               ></star-rating>
             </span>
             <span class="spr-summary-caption"
-              ><span class="spr-summary-actions-togglereviews"
-                >Based on {{}} reviews</span
+              ><span class="spr-summary-actions-togglereviews" v-if="product.reviews"
+                >Based on {{ product.reviews.length }} reviews</span
               >
             </span>
             <span class="spr-summary-actions">
@@ -110,6 +110,9 @@ export default {
       try {
         const response = await axios.get(
           this.base_url + "reviews",
+          {
+            params: this.axiosParams,
+          },
           this.requestAuthHeader()
         );
         this.reviews = response.data.data;
@@ -123,7 +126,13 @@ export default {
       }
     },
   },
-  computed: {},
+  computed: {
+    axiosParams() {
+      const params = new URLSearchParams();
+      params.append("product_id", this.$route.params.id);
+      return params;
+    },
+  },
   mounted() {
     this.getReviews();
     this.getProductDetails();

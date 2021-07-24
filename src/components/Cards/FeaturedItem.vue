@@ -58,12 +58,7 @@
           <div class="yith-wcwl-add-to-wishlist">
             <div class="yith-wcwl-add-button show">
               <div class="product-wishlist wishlist-4611492053026">
-                <a
-                  href="#"
-                  data-product-handle="battery-charger"
-                  data-product-title="BATTERY CHARGER"
-                  class="add_to_wishlist link-wishlist"
-                  title="Add to wishlist"
+                <a href="#" class="add_to_wishlist link-wishlist" title="Add to wishlist"
                   ><i class="icon-wishlist"></i
                   ><span data-translate="wish_list.general.add_to_wishlist"
                     >Add to wishlist</span
@@ -82,16 +77,14 @@
           <span class="price"
             ><del
               ><span class="shopify-Price-amount amount"
-                ><span class="money" data-currency-usd="$299.00"
+                ><span class="money" v-if="featured_item.discount > 0"
                   >${{ featured_item.price }}</span
                 ></span
               ></del
             >
             <ins
               ><span class="shopify-Price-amount amount"
-                ><span class="money" data-currency-usd="$259.00"
-                  >${{ featured_item.price }}</span
-                ></span
+                ><span class="money">${{ featured_item.totalPrice }}</span></span
               ></ins
             ></span
           >

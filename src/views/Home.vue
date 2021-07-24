@@ -62,6 +62,10 @@ export default {
     FilterProducts,
     Support,
   },
+
+  mounted() {
+    console.log();
+  },
 };
 </script>
 

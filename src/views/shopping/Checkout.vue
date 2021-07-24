@@ -1,45 +1,173 @@
 <template>
-  <div>
-    <star-rating
-      :star-size="20"
-      @update:rating="setRating"
-      v-model="rating"
-      :show-rating="false"
-    ></star-rating>
-  </div>
+   <div class="exp">
+   <div class="checkbox">
+    <form>
+      <div>
+        <input type="checkbox" id="check" name="check" value="" />
+        <label for="check">
+          <span><!-- This span is needed to create the "checkbox" element --></span>Checkbox
+        </label>
+      </div>
+    </form>
+    </div>
+</div>
 </template>
 
 <script>
-import StarRating from "vue-star-rating";
+
 export default {
   name: "App",
   components: {
-    StarRating,
+    
   },
   data() {
     return {
-      rating: null,
     };
   },
   computed: {},
 
   methods: {
-    setRating(rating) {
-      this.rating = rating;
-    },
+   
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.custom-text {
-  font-weight: bold;
-  font-size: 1.9em;
-  border: 1px solid #cfcfcf;
-  padding-left: 10px;
-  padding-right: 10px;
-  border-radius: 5px;
-  color: #999;
-  background: #fff;
+html {
+  height: 100%; // for styling only
+}
+
+body {
+  background-color: #1790b5; // for styling only
+  height: 100%; // for styling only
+  font-family: 'Open Sans', sans-serif;
+}
+
+.exp {
+  display: table; // to center the item
+  width: 100%;
+  height: 100%;
+  
+  .checkbox {
+    display: table-cell; // to center the item
+    width: 100%;
+    height: 100%;
+    vertical-align: middle; // to center the item
+    text-align: center; // to center the item
+  }
+}
+
+label {
+    display: inline-block; // to make it easier to click
+    color: #fff;
+    cursor: pointer;
+    position: relative; // important
+  
+    // Now we'll create the checkbox object
+  
+    span {
+      display: inline-block;
+      position: relative;
+      background-color: transparent;
+      width: 25px;
+      height: 25px;
+      transform-origin: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      vertical-align: -6px;
+      margin-right: 10px;
+      transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89); // custom ease effect for bouncy animation
+  
+  // Now we'll create the "tick" using pseudo elements - those will be basically two lines that will be rotated to form the "tick"
+  
+    &:before {
+      content: "";
+      width: 0px;
+      height: 2px;
+      border-radius: 2px; // so that the tick has nice rounded look
+      background: #fff;
+      position: absolute;
+      transform: rotate(45deg);
+      top: 13px; // you'll need to experiment with placement depending on the dimensions you've chosen
+      left: 9px; // you'll need to experiment with placement depending on the dimensions you've chosen
+      transition: width 50ms ease 50ms;
+      transform-origin: 0% 0%;
+    }
+  
+    &:after {
+      content: "";
+      width: 0;
+      height: 2px;
+      border-radius: 2px; // so that the tick has nice rounded look
+      background: #fff;
+      position: absolute;
+      transform: rotate(305deg);
+      top: 16px; // you'll need to experiment with placement depending on the dimensions you've chosen
+      left: 10px; // you'll need to experiment with placement depending on the dimensions you've chosen
+      transition: width 50ms ease;
+      transform-origin: 0% 0%;
+    }
+  }
+  // Time to add some life to it
+  
+  &:hover {
+    span {
+      &:before {
+        width: 5px;
+        transition: width 100ms ease;
+      }
+      
+      &:after {
+        width: 10px;
+        transition: width 150ms ease 100ms;
+      }
+    }
+  }
+}
+
+input[type="checkbox"] {
+    display: none; // hide the system checkbox
+  
+  // Let's add some effects after the checkbox is checked
+  
+  &:checked {
+    + label {
+      span {
+        background-color: #fff;
+        transform: scale(1.25); // enlarge the box
+        
+        &:after {
+          width: 10px;
+          background: #1790b5;
+          transition: width 150ms ease 100ms; // enlarge the tick
+        }
+        
+        &:before {
+          width: 5px;
+          background: #1790b5;
+          transition: width 150ms ease 100ms; // enlarge the tick
+        }
+      }
+      
+      &:hover { // copy the states for onMouseOver to avoid flickering
+        span {
+          background-color: #fff;
+          transform: scale(1.25); // enlarge the box
+
+          &:after {
+            width: 10px;
+            background: #1790b5;
+            transition: width 150ms ease 100ms; // enlarge the tick
+          }
+
+          &:before {
+            width: 5px;
+            background: #1790b5;
+            transition: width 150ms ease 100ms; // enlarge the tick
+          }
+        }  
+      }
+    }
+  }
 }
 </style>

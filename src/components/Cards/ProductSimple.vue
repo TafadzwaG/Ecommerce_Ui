@@ -1,5 +1,7 @@
 <template>
-  <div class="item product product-col product-outimage_aq_onimage product-type-simple">
+  <div
+    class="item product product-col product-outimage_aq_onimage product-type-simple card-simple"
+  >
     <div class="product-inner">
       <div class="product-image">
         <router-link :to="'/product-details/' + product.id">
@@ -61,9 +63,11 @@
           </div>
         </div>
         <div class="clear"></div>
-        <span class="category-list"
-          ><a title="">{{ product.categories[0].name }}</a
-          >,&nbsp;<a title="">{{ product.categories[1].name }}</a></span
+        <span
+          class="category-list category_name"
+          v-for="category in product.categories"
+          :key="category.id"
+          ><a title=""> {{ category.name }} </a>,</span
         ><a class="product-loop-title">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>
@@ -112,4 +116,17 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.category_name {
+  display: inline-block !important;
+  opacity: 1;
+}
+.rating-wrap {
+  margin-top: -2rem !important;
+}
+.card-simple {
+  // border-radius: 10px;
+  // background: #fff;
+  // box-shadow: 20px 20px 60px #c9c6c6, -20px -20px 60px #ffffff;
+}
+</style>
