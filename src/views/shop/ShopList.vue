@@ -63,6 +63,7 @@ import Breadcrumb from "@/components/navigation/BreadCrumbs.vue";
 import global from "@/mixins/global.js";
 import { onMounted } from "vue";
 import useFetchProducts from "@/hooks/useFetchProducts.js";
+import { inject } from "vue";
 export default {
   components: {
     ProductCard,

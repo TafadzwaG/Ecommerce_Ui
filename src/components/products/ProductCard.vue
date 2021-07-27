@@ -34,12 +34,20 @@
         </div>
       </div>
       <div class="product-content">
-        <span
-          class="category-list category_name"
-          v-for="category in product.categories"
-          :key="category.id"
-          ><a href="#" title=""> {{ category.name }}, </a></span
-        ><a class="product-loop-title" href="#">
+        <div class="taa">
+          <span class="category-list category_name"
+            ><a
+              href="#"
+              v-for="category in product.categories"
+              :key="category.id"
+              title=""
+            >
+              {{ category.name }},&nbsp;
+            </a></span
+          >
+        </div>
+
+        <a class="product-loop-title" href="#">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>
           </h3>
@@ -75,8 +83,11 @@
             <a
               @click.prevent="addToCart"
               class="button product_type_variable add_to_cart_button"
-              ><span>Add to Cart</span></a
             >
+              <span v-if="loading == true">Adding to cart....</span>
+              <span v-else>Add to Cart</span>
+            </a>
+
             <div class="yith-wcwl-add-to-wishlist">
               <div class="yith-wcwl-add-button show">
                 <div class="product-wishlist wishlist-4878316077133">
@@ -94,6 +105,8 @@
         </div>
       </div>
     </div>
+
+    <!-- <base-spinner> </base-spinner> -->
 
     <modal :show="openQuickViewModal" @close="closeQuickView">
       <modal-item
@@ -113,6 +126,7 @@ import global from "@/mixins/global.js";
 import axios from "axios";
 import StarRating from "vue-star-rating";
 import { mapGetters } from "vuex";
+import BaseSpinner from "@/components/ui/BaseSpinner.vue";
 export default {
   props: ["product"],
   mixins: [global],
@@ -120,10 +134,12 @@ export default {
     Modal,
     ModalItem,
     StarRating,
+    BaseSpinner,
   },
   data: () => {
     return {
       openQuickViewModal: false,
+      loading: false,
     };
   },
   computed: {},
@@ -134,16 +150,19 @@ export default {
     closeQuickView() {
       this.openQuickViewModal = false;
     },
-    addToCart() {
+    async addToCart() {
+      this.loading = true;
+
       try {
-        this.$store.dispatch("addItemToCart", {
+        await this.$store.dispatch("addItemToCart", {
           product_id: this.product.id,
           quantity: 1,
         });
       } catch (ex) {
         throw new Error(ex);
+        this.loading = false;
       } finally {
-        this.loadUser();
+        this.loading = false;
       }
     },
   },
@@ -158,11 +177,15 @@ export default {
   margin-top: -2rem !important;
 }
 .category_name {
-  display: inline-block;
+  display: inline;
+  overflow: hidden !important;
+  /* border: 1px solid red; */
 }
 .card-simple {
   /* border-radius: 10px;
   background: #fff;
   box-shadow: 20px 20px 60px #c9c6c6, -20px -20px 60px #ffffff; */
+}
+.taa {
 }
 </style>

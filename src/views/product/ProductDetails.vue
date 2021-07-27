@@ -22,11 +22,12 @@
                 :star-size="20"
                 :show-rating="false"
                 :rating="product.rating"
+                :read-only="true"
               ></star-rating>
             </span>
             <span class="spr-summary-caption"
               ><span class="spr-summary-actions-togglereviews" v-if="product.reviews"
-                >Based on {{ product.reviews.length }} reviews</span
+                >Based on {{ product.reviews.length }} review(s)</span
               >
             </span>
             <span class="spr-summary-actions">

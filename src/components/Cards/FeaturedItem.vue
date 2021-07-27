@@ -68,11 +68,34 @@
             </div>
           </div>
           <div class="clear"></div>
+          <span class="category-list"
+            ><a
+              v-for="category in featured_item.categories"
+              :key="category.id"
+              href="#"
+              title=""
+            >
+              {{ category.name }},&nbsp; </a
+            >,
+          </span>
           <a class="product-loop-title" href="#">
             <h3 class="shopify-loop-product__title">
-              <span class="lang1">{{ featured_item.name }}</span>
+              <span class="lang1-title">{{ featured_item.name }}</span>
             </h3>
           </a>
+
+          <div class="rating-wrap">
+            <div class="rating-content">
+              <span class="spr-badge" id="spr_badge_4611492970530" data-rating="0.0">
+                <star-rating
+                  :star-size="15"
+                  :show-rating="false"
+                  :rating="featured_item.rating"
+                  :read-only="true"
+                ></star-rating>
+              </span>
+            </div>
+          </div>
 
           <span class="price"
             ><del
@@ -107,6 +130,7 @@
 import Modal from "../Modal/Modal.vue";
 import ModalItem from "../Modal/ModalItem.vue";
 import global from "@/mixins/global.js";
+import StarRating from "vue-star-rating";
 
 export default {
   emits: ["add-to-cart", "add-to-wishlist"],
@@ -115,6 +139,7 @@ export default {
   components: {
     Modal,
     ModalItem,
+    StarRating,
   },
 
   data: () => {
@@ -148,5 +173,25 @@ img:not(.lazyloaded) {
 }
 .product-image {
   height: 180px !important;
+}
+h3.shopify-loop-product__title {
+  box-sizing: border-box;
+  margin-top: 0px;
+  margin-bottom: 0.45rem;
+  font-family: Poppins;
+  font-weight: 400;
+  line-height: 1.35;
+  text-align: left !important;
+  color: inherit;
+  font-size: 15px;
+  margin: 0px 0px 20px;
+  padding: 0px;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.rating-wrap {
+  margin-top: -2rem !important;
 }
 </style>

@@ -19,7 +19,14 @@
         </span>
       </a>
       <div class="star-rating">
-        <span class="shopify-product-reviews-badge" data-id="4611505291298"></span>
+        <span class="shopify-product-reviews-badge" data-id="4611505291298">
+          <star-rating
+            :star-size="15"
+            :show-rating="false"
+            :rating="product.rating"
+            :read-only="true"
+          ></star-rating>
+        </span>
       </div>
       <span class="shopify-Price-amount amount"
         ><span class="money">${{ product.price }}</span></span
@@ -30,9 +37,13 @@
 
 <script>
 import global from "@/mixins/global.js";
+import StarRating from "vue-star-rating";
 export default {
   mixins: [global],
   props: ["product"],
+  components: {
+    StarRating,
+  },
   data: () => {
     return {};
   },

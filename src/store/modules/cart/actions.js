@@ -29,21 +29,7 @@ export default {
             throw new Error(err);
 
         } finally {
-
-            if (context.getters.token) {
-                const response = await axios.get('http://127.0.0.1:8000/api/auth/user', context.getters.authHeaders)
-                const responseData = response.data
-
-                localStorage.setItem("user", JSON.stringify(responseData))
-
-                context.commit("setUser", {
-                    user: responseData,
-                    token: context.getters.token,
-                });
-
-            }
-
-
+            context.dispatch("reloadUser");
         }
 
     },
@@ -61,7 +47,7 @@ export default {
             console.log(err);
             throw new Error(err)
         } finally {
-            console.log('item removed from cart')
+            context.dispatch("reloadUser");
         }
 
     }

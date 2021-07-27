@@ -6,11 +6,12 @@
     <div class="search-extended has-categories">
       <form role="search" class="searchform has-categories-dropdown porto-ajax-search">
         <label class="screen-reader-text" for="q"></label>
-        <input type="text" class="s" placeholder="Search..." value="" />
+        <input type="text" class="s" placeholder="Search..." v-model="searchTerm" />
         <input type="hidden" name="type" value="product" />
         <div id="shopify-section-search-by-category" class="shopify-section"></div>
-        <button type="submit" class="searchsubmit">Search</button>
+        <button class="searchsubmit" @click.prevent="searchProduct">Search</button>
       </form>
+
       <div class="search-info-text">
         <span>Start typing to see products you are looking for.</span>
       </div>
@@ -19,7 +20,51 @@
 </template>
 
 <script>
-export default {};
+import axios from "axios";
+import global from "@/mixins/global.js";
+import { mapGetters, mapMutations } from "vuex";
+export default {
+  mixins: [global],
+  data: () => {
+    return {
+      searchTerm: " ",
+    };
+  },
+  watch: {
+    ...mapMutations(["setSearchItems"]),
+    searchTerm: {
+      handler: function (newVal, oldVal) {
+        if (newVal === " ") {
+          localStorage.setItem("searchItems", []);
+          this.$store.commit("setSearchItems", {
+            searchItems: [],
+          });
+        }
+      },
+      deep: true,
+    },
+  },
+
+  computed: {
+    ...mapGetters(["getSearchItems"]),
+    axiosParams() {
+      const params = new URLSearchParams();
+      params.append("query", this.searchTerm);
+      return params;
+    },
+  },
+  mounted() {},
+  methods: {
+    async searchProduct() {
+      try {
+        await this.$store.dispatch("searchProducts", this.axiosParams);
+      } catch (error) {
+        throw new Error(error);
+      } finally {
+      }
+    },
+  },
+};
 </script>
 
 <style scoped>

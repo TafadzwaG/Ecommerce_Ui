@@ -63,11 +63,10 @@
           </div>
         </div>
         <div class="clear"></div>
-        <span
-          class="category-list category_name"
-          v-for="category in product.categories"
-          :key="category.id"
-          ><a title=""> {{ category.name }} </a>,</span
+        <span class="category-list category_name"
+          ><a title="" v-for="category in product.categories" :key="category.id">
+            {{ category.name }},&nbsp;</a
+          >,</span
         ><a class="product-loop-title">
           <h3 class="shopify-loop-product__title">
             <span class="lang1">{{ product.name }}</span>

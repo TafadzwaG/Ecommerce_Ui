@@ -56,11 +56,13 @@ export default {
 
   methods: {
     removeItemFromCart() {
-      this.$store.dispatch("removeItemFromCart", this.cart_item.id);
-      this.loadUser();
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
+      try {
+        this.$store.dispatch("removeItemFromCart", this.cart_item.id);
+      } catch (error) {
+        throw new Error(error);
+      } finally {
+        this.loadUser();
+      }
     },
   },
 };

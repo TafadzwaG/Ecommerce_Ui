@@ -8,7 +8,9 @@
           </h2>
 
           <div class="porto-products-element">
-            <carousel :items-to-show="4">
+            <carousel :items-to-show="4" 
+            :autoplay="3000"
+            :transition="500">
               <slide v-for="featured_item in featured_products" :key="featured_item.id">
                 <div
                   class="category-products products products-spacing-10 featured-box-container"

@@ -73,7 +73,7 @@
               </ul>
             </div>
 
-            <div class="cart-checkout">
+            <div class="cart-checkout" v-if="cart_total_qty > 0">
               <div class="cart-info">
                 <p class="subtotal">
                   <span class="label">Total:</span>
@@ -118,13 +118,13 @@ export default {
   },
 
   methods: {
-    computeImage() {},
-    removeItemFromCart(item_id) {
-      this.$store.dispatch("removeItemFromCart", item_id);
-      this.loadUser();
-      setTimeout(() => {
-        location.reload();
-      }, 2000);
+    async removeItemFromCart(item_id) {
+      try {
+        await this.$store.dispatch("removeItemFromCart", item_id);
+      } catch (error) {
+        throw new Error(error);
+      } finally {
+      }
     },
   },
 };

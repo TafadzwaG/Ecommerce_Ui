@@ -71,6 +71,8 @@ export default {
         })
         .then((response) => {
           console.log(response.data.data);
+
+          this.$emit("filtered-items", response.data.data);
         })
         .catch((err) => {
           console.log(err);

@@ -53,6 +53,23 @@ export default {
         });
     },
 
+
+    async reloadUser(context) {
+
+        if (context.getters.token) {
+            const response = await axios.get('http://127.0.0.1:8000/api/auth/user', context.getters.authHeaders)
+            const responseData = response.data
+
+            localStorage.setItem("user", JSON.stringify(responseData))
+
+            context.commit("setUser", {
+                user: responseData,
+                token: context.getters.token,
+            });
+
+        }
+    },
+
     logout(context) {
         localStorage.removeItem("token");
         localStorage.removeItem("user");

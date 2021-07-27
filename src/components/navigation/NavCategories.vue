@@ -13,12 +13,19 @@
       <ul id="categories_nav" class="nav-accordion nav-categories" style="">
         <li
           class="level0 level-top parent active"
-          v-for="(category, index) in product_categories"
+          v-for="(category, index) in categories"
           :key="index"
         >
           <a @click="filterProduct" class="level-top">
             <span class="span-with-check-box">
-            <input type="checkbox" class="checkbox smart_input" name="" :value="category.id" :id="'category'+index" v-model="selected.product_categories">
+              <input
+                type="checkbox"
+                class="checkbox smart_input"
+                name=""
+                :value="category.id"
+                :id="'category' + index"
+                v-model="selected.categories"
+              />
               <span class="lang1" @click="expandCategories(index)">{{
                 category.name
               }}</span>
@@ -85,28 +92,26 @@ export default {
   mixins: [global],
   data: () => {
     return {
-      product_categories: [],
+      categories: [],
       loading: false,
       expandedGroup: [],
       expandSubGroup: [],
 
       selected: {
-        product_categories: []
-      }
-
+        categories: [],
+      },
     };
   },
 
   mounted() {
     this.getProductCategories();
-   
   },
 
-  watch : {
+  watch: {
     selected: {
-      handler: function(){
-        this.getProductCategories(); 
-        this.getFilteredProducts()
+      handler: function () {
+        this.getProductCategories();
+        this.getFilteredProducts();
       },
       deep: true,
     },
@@ -118,15 +123,15 @@ export default {
       this.$emit("filter-product");
     },
 
-     getFilteredProducts() {
+    getFilteredProducts() {
       axios
         .get(this.base_url + "products_filter", {
           params: this.selected,
         })
         .then((response) => {
-          console.log("Products from filtering")
+          console.log("Products from filtering");
           console.log(response.data.data);
-          console.log("Products from filtering")
+          console.log("Products from filtering");
         })
         .catch((err) => {
           console.log(err);
@@ -135,15 +140,13 @@ export default {
     getProductCategories() {
       this.loading = true;
       axios
-        .get(this.base_url + "categories", 
-        this.requestAuthHeader(), 
-        { 
-          params : (this.selected, "product_categories")
+        .get(this.base_url + "categories", this.requestAuthHeader(), {
+          params: (this.selected, "categories"),
         })
         .then((response) => {
           if (response.status == 200) {
             console.log(response.data.data);
-            this.product_categories = response.data.data;
+            this.categories = response.data.data;
             this.loading = false;
           }
         })
@@ -193,11 +196,11 @@ export default {
 .none-block {
   display: none;
 }
-.span-with-check-box{
+.span-with-check-box {
   /* border: 1px solid red; */
-  display: flex
+  display: flex;
 }
-.check{
+.check {
   border: 1px solid yellow !important;
 }
 
@@ -210,7 +213,6 @@ input.checkbox.smart_input {
   overflow: visible;
   padding: 0px;
 
- 
   width: 18px;
   height: 18px;
   opacity: 1;

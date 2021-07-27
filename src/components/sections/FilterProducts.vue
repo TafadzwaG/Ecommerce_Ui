@@ -18,7 +18,12 @@
           <product-container>
             <template v-slot:title> TOP RATED PRODUCTS </template>
             <template v-slot:product>
-              <!-- <mini-product> </mini-product> -->
+              <mini-product
+                v-for="(product, index) in products_by_rating"
+                :key="index"
+                :product="product"
+              >
+              </mini-product>
             </template>
           </product-container>
           <product-container>
@@ -50,6 +55,8 @@ export default {
       latest_products: [],
       error: "",
       loading: false,
+
+      products_by_rating: [],
     };
   },
 
@@ -69,10 +76,22 @@ export default {
           console.log(error);
         });
     },
+
+    async getProductsByHighestRated() {
+      try {
+        const response = await axios.get(this.base_url + "products_rating");
+        this.products_by_rating = response.data.data;
+      } catch (ex) {
+        throw new Error(ex);
+      } finally {
+        this.loading = false;
+      }
+    },
   },
   computed: {},
   mounted() {
     this.getLatestProducts();
+    this.getProductsByHighestRated();
   },
 };
 </script>
