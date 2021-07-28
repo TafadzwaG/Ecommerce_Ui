@@ -3,7 +3,7 @@
     <div class="product-inner">
       <div class="product-image">
         <router-link :to="'/product-details/' + product.id">
-          <div class="inner img-effect">
+          <div class="inner img-effect" v-if="product.product_images">
             <img
               alt="Basketball Sports Blue Shoes"
               class="img-responsive main lazyloaded"

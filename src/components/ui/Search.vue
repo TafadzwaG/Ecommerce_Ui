@@ -35,9 +35,9 @@ export default {
     searchTerm: {
       handler: function (newVal, oldVal) {
         if (newVal === " ") {
-          localStorage.setItem("searchItems", []);
+          localStorage.setItem("searchItems", null);
           this.$store.commit("setSearchItems", {
-            searchItems: [],
+            searchItems: null,
           });
         }
       },
@@ -46,7 +46,6 @@ export default {
   },
 
   computed: {
-    ...mapGetters(["getSearchItems"]),
     axiosParams() {
       const params = new URLSearchParams();
       params.append("query", this.searchTerm);

@@ -5,7 +5,7 @@ import actions from './actions'
 export default {
 
     state: () => ({
-        searchItems: [],
+        searchItems: null,
     }),
     mutations,
     getters,

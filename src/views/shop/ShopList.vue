@@ -37,7 +37,19 @@
             <div
               class="category-products products grid products-spacing-10 item-1200-4 item-992-4 item-768-3 item-640-2 item-320-1"
             >
-              <div id="products-grid" class="products-grid columns4">
+              <div
+                id="products-grid"
+                class="products-grid columns4"
+                v-if="getSearchItems !== null"
+              >
+                <product-card
+                  v-for="product in getSearchItems"
+                  :key="product.id"
+                  :product="product"
+                >
+                </product-card>
+              </div>
+              <div id="products-grid" class="products-grid columns4" v-else>
                 <product-card
                   v-for="product in products"
                   :key="product.id"
@@ -63,7 +75,9 @@ import Breadcrumb from "@/components/navigation/BreadCrumbs.vue";
 import global from "@/mixins/global.js";
 import { onMounted } from "vue";
 import useFetchProducts from "@/hooks/useFetchProducts.js";
-import { inject } from "vue";
+import { inject, computed } from "vue";
+
+import { useStore } from "vuex";
 export default {
   components: {
     ProductCard,
@@ -75,10 +89,12 @@ export default {
 
   setup() {
     const { loading, error, products, getProducts } = useFetchProducts();
+    const store = useStore();
 
     onMounted(getProducts);
 
     return {
+      getSearchItems: computed(() => JSON.parse(store.getters.getSearchItems)),
       loading,
       error,
       products,

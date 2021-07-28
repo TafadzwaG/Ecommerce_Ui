@@ -13,11 +13,8 @@ export default {
             const responseData = response.data.data;
 
             localStorage.setItem("searchItems", JSON.stringify(responseData))
-
-
-
             context.commit('setSearchItems', {
-                searchItems: JSON.stringify(responseData)
+                searchItems: localStorage.getItem("searchItems")
             })
         } catch (error) {
             throw new Error(error)

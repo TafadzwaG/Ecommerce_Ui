@@ -47,7 +47,15 @@
               :key="category.id"
             >
               <a>
-                <span>
+                <span class="span-with-check-box">
+                  <input
+                    type="checkbox"
+                    class="checkbox smart_input"
+                    name=""
+                    :value="category.id"
+                    :id="'category' + index"
+                    v-model="selected.categories"
+                  />
                   <span class="lang1" @click="expandSubCategories(key)">{{
                     category.name
                   }}</span>
@@ -70,7 +78,15 @@
                   :key="category.id"
                 >
                   <a>
-                    <span>
+                    <span class="span-with-check-box">
+                      <input
+                        type="checkbox"
+                        class="checkbox smart_input"
+                        name=""
+                        :value="category.id"
+                        :id="'category' + index"
+                        v-model="selected.categories"
+                      />
                       <span class="lang1">{{ category.name }}</span>
                       <span class="count">({{ category.products_count }})</span>
                     </span>
