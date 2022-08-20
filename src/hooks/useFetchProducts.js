@@ -13,7 +13,7 @@ export default function useFetchProducts() {
 
     const loading = ref(false)
     const error = ref(null)
-    const products = ref([])
+    let products = ref([])
 
     const getProducts = async() => {
         try {

@@ -181,6 +181,7 @@ label.spr-form-label {
   margin-bottom: 10px;
   margin: 0px;
   padding: 0px;
+  padding-right: 10px;
   position: relative;
   float: left;
   color: rgb(119, 119, 119);

@@ -43,6 +43,10 @@
          try {
              const resp = await axios.get(baseUrl.value + 'featured_products', requestAuthHeader())
              featured_products.value = resp.data.data;
+
+             console.log("***********")
+             console.log(resp.data.data)
+             console.log("***********")
          } catch (ex) {
              error.value = ex;
              console.log(ex);

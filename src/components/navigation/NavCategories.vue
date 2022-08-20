@@ -34,8 +34,7 @@
           ><span
             v-if="category.subcategory.length > 0"
             :class="isExpanded(index) ? 'expand' : 'collapse'"
-            >expand</span
-          >
+          ></span>
           <ul
             class="level0"
             v-show="isExpanded(index)"
@@ -135,19 +134,17 @@ export default {
 
   computed: {},
   methods: {
-    filterProduct() {
-      this.$emit("filter-product");
+    checkChange() {
+      this.$emit("check-change");
     },
-
     getFilteredProducts() {
       axios
         .get(this.base_url + "products_filter", {
           params: this.selected,
         })
         .then((response) => {
-          console.log("Products from filtering");
-          console.log(response.data.data);
-          console.log("Products from filtering");
+          const filteredData = response.data.data;
+          this.$emit("filter", filteredData);
         })
         .catch((err) => {
           console.log(err);
@@ -161,7 +158,6 @@ export default {
         })
         .then((response) => {
           if (response.status == 200) {
-            console.log(response.data.data);
             this.categories = response.data.data;
             this.loading = false;
           }

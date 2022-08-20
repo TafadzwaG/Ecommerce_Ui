@@ -70,9 +70,13 @@ export default {
           params: this.selected,
         })
         .then((response) => {
-          console.log(response.data.data);
+          let filteredData = response.data.data;
 
-          this.$emit("filtered-items", response.data.data);
+          console.log("********** filter");
+          console.log(filteredData);
+          console.log("********** filter");
+
+          this.$emit("filter", filteredData);
         })
         .catch((err) => {
           console.log(err);

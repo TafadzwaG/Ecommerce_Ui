@@ -15,12 +15,11 @@
                 <a href="javascript:void(0)"><i class="fa fa-sliders"></i></a>
               </div>
               <div class="canvas-inner sidebar-style-1">
-                <nav-categories @filter-product="filterProductByCategory">
-                </nav-categories>
+                <nav-categories @filter="filterByCategory"> </nav-categories>
                 <div class="block block-layered-nav">
                   <div class="block-content">
                     <dl class="narrow-by-list">
-                      <price-filter> </price-filter>
+                      <price-filter @filter="filterByPrice"> </price-filter>
                     </dl>
                   </div>
                 </div>
@@ -40,7 +39,19 @@
               <div
                 id="products-grid"
                 class="products-grid columns4"
-                v-if="getSearchItems !== null"
+                v-if="filterData.length > 0"
+              >
+                <product-card
+                  v-for="product in filterData"
+                  :key="product.id"
+                  :product="product"
+                >
+                </product-card>
+              </div>
+              <div
+                id="products-grid"
+                class="products-grid columns4"
+                v-if="getSearchItems !== null && filterData.length <= 0"
               >
                 <product-card
                   v-for="product in getSearchItems"
@@ -49,7 +60,11 @@
                 >
                 </product-card>
               </div>
-              <div id="products-grid" class="products-grid columns4" v-else>
+              <div
+                id="products-grid"
+                class="products-grid columns4"
+                v-if="getSearchItems === null && filterData.length <= 0"
+              >
                 <product-card
                   v-for="product in products"
                   :key="product.id"
@@ -75,7 +90,7 @@ import Breadcrumb from "@/components/navigation/BreadCrumbs.vue";
 import global from "@/mixins/global.js";
 import { onMounted } from "vue";
 import useFetchProducts from "@/hooks/useFetchProducts.js";
-import { inject, computed } from "vue";
+import { inject, computed, ref, reactive } from "vue";
 
 import { useStore } from "vuex";
 export default {
@@ -91,13 +106,33 @@ export default {
     const { loading, error, products, getProducts } = useFetchProducts();
     const store = useStore();
 
+    let filterData = reactive([]);
+    let filterDataByPrice = reactive([]);
+
     onMounted(getProducts);
+
+    const filterByCategory = async (prod) => {
+      console.log(prod);
+      filterData.push(...prod);
+      console.log(filterData);
+    };
+
+    const filterByPrice = async (product) => {
+      filterDataByPrice.push(product);
+    };
+
+    const resetFilter = async () => {
+      (filterData = []), (filterDataByPrice = []);
+    };
 
     return {
       getSearchItems: computed(() => JSON.parse(store.getters.getSearchItems)),
       loading,
       error,
       products,
+      filterData,
+      filterByCategory,
+      filterByPrice,
     };
   },
 };

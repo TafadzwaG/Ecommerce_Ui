@@ -39,9 +39,7 @@
                       <a
                         class="add_to_wishlist link-wishlist"
                         @click.prevent="addToWisList"
-                        ><span data-translate="wish_list.general.add_to_wishlist"
-                          >Add to wishlist</span
-                        ></a
+                        ><span>Add to wishlist</span></a
                       >
                     </div>
                   </div>
@@ -157,9 +155,11 @@ export default {
     },
     openQuickView() {
       this.openQuickViewModal = true;
+      this.$emit("open-modal");
     },
     closeQuickView() {
       this.openQuickViewModal = false;
+      this.$emit("close-modal");
     },
   },
 };
@@ -186,12 +186,16 @@ h3.shopify-loop-product__title {
   font-size: 15px;
   margin: 0px 0px 20px;
   padding: 0px;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.01emp;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .rating-wrap {
   margin-top: -2rem !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: flex-start !important;
+  padding: 10px !important;
 }
 </style>
